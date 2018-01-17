@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.h
+//  HongZeHaiShi
+//
+//  Created by 蔡紫龙 on 2018/1/11.
+//  Copyright © 2018年 xgzl. All rights reserved.
+//
+
+#ifndef PrefixHeader_h
+#define PrefixHeader_h
+
+//引入Masonry两个宏 便于写布局代码
+//#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+#import <AFNetworking/AFNetworking.h>
+#import <Masonry/Masonry.h>
+#import <JSONModel/JSONModel.h>
+//#import "UIImageView+WebCache.h"
+#import "MBProgressHUD+MP.h"
+#import "MWPhotoBrowser.h"
+#import "KeyboardManager.h"
+#import "Macros.h"
+#import "UIImage+Color.h"
+//#import "UIFont+ZLFontPXAndPT.h"
+#import "SVProgressHUD.h"
+//#import "ThirdMacros.h"
+#import "NetURL.h"
+//#import "UserDefaultKey.h"
+//#import "DataBaseKey.h"
+//#import "MJRefresh.h"
+#import "Strings.h"
+#import "Colors.h"
+#import "UIAlertView+Block.h"
+#import <NinaPagerView/NinaPagerView.h>
+#endif /* PrefixHeader_h */
