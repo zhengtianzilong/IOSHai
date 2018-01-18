@@ -8,6 +8,7 @@
 
 #import "ZLImportantTodayVC.h"
 #import "ZLImportantTodayTableViewCell.h"
+#import "ZLShipDetailVC.h"
 @interface ZLImportantTodayVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *mainTableView;
 @end
@@ -51,6 +52,16 @@
     return cell;
     
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ZLShipDetailVC *detailVC = [[ZLShipDetailVC alloc]init];
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    
+}
+
 - (UITableView *)mainTableView{
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc]initWithFrame:CGRectZero style:(UITableViewStylePlain)];

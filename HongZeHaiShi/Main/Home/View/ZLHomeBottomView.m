@@ -38,10 +38,6 @@
 
 - (void)updateConstraints{
     [super updateConstraints];
-    
-    
-    
-    
 }
 
 - (void)layoutSubviews{
@@ -57,8 +53,6 @@
 }
 
 #pragma mark -- collection的代理方法
-
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     ZLHomeBottomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZLHomeBottomCollectionViewCell" forIndexPath:indexPath];
@@ -93,6 +87,7 @@
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
+#pragma mark 懒加载
 - (UICollectionView *)mainCollectionView{
     if (!_mainCollectionView) {
         
@@ -121,13 +116,11 @@
             ZLHomeBottomCollectionModel *model = [ZLHomeBottomCollectionModel new];
             model.imageTitle = @"day_rivers_total";
             model.title = titleArray[i];
-            
             [self.itemArray addObject:model];
         }
     }
     
     return _itemArray;
-    
 }
 
 

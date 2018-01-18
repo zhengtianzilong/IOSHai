@@ -25,6 +25,6 @@
 @property (nonatomic, strong) UILabel *deadWeightLabel;
 @property (nonatomic, strong) UILabel *deadWeight;
 // 系统管理员标记
-@property (nonatomic, strong) UILabel *people;;
+@property (nonatomic, strong) UILabel *people;
 
 @end
