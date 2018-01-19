@@ -21,6 +21,8 @@
 		D55276C020106EB800D3D025 /* ZLShipInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55276BF20106EB800D3D025 /* ZLShipInfoView.m */; };
 		D55276C32010909300D3D025 /* ZLShipBaseTopInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55276C22010909300D3D025 /* ZLShipBaseTopInfoView.m */; };
 		D55276C7201095BA00D3D025 /* ZLShipBaseBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55276C6201095BA00D3D025 /* ZLShipBaseBottomView.m */; };
+		D55276CC2010A77D00D3D025 /* XDMultTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55276C92010A77D00D3D025 /* XDMultTableView.m */; };
+		D55276CD2010A77D00D3D025 /* down_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D55276CA2010A77D00D3D025 /* down_blue@2x.png */; };
 		D566A335200C3A1C00D8F877 /* MBProgressHUD+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = D566A333200C3A1C00D8F877 /* MBProgressHUD+MP.m */; };
 		D566A354200C3CD100D8F877 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = D566A33A200C3CD100D8F877 /* UIImage+Color.m */; };
 		D566A355200C3CD100D8F877 /* UILabel+ZLLeftAndRight.m in Sources */ = {isa = PBXBuildFile; fileRef = D566A33D200C3CD100D8F877 /* UILabel+ZLLeftAndRight.m */; };
@@ -54,6 +56,7 @@
 		D5D914E42007125100FD94E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D914E22007125100FD94E9 /* LaunchScreen.storyboard */; };
 		D5D914E72007125100FD94E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D914E62007125100FD94E9 /* main.m */; };
 		D5D915012007188800FD94E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D914F32007188700FD94E9 /* AppDelegate.m */; };
+		D5F1146A2011C94F008990C4 /* ZLInfoRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F114692011C94F008990C4 /* ZLInfoRecordTableViewCell.m */; };
 		D5FA5301200EE50300300811 /* ZLHomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FA5300200EE50300300811 /* ZLHomeTopView.m */; };
 		D5FA5304200EE9BA00300811 /* ZLHomeCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FA5303200EE9BA00300811 /* ZLHomeCenterView.m */; };
 		D5FA5307200EEA4100300811 /* ZLHomeCenterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FA5306200EEA4100300811 /* ZLHomeCenterCollectionViewCell.m */; };
@@ -105,6 +108,9 @@
 		D55276C22010909300D3D025 /* ZLShipBaseTopInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLShipBaseTopInfoView.m; sourceTree = "<group>"; };
 		D55276C5201095BA00D3D025 /* ZLShipBaseBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLShipBaseBottomView.h; sourceTree = "<group>"; };
 		D55276C6201095BA00D3D025 /* ZLShipBaseBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLShipBaseBottomView.m; sourceTree = "<group>"; };
+		D55276C92010A77D00D3D025 /* XDMultTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMultTableView.m; sourceTree = "<group>"; };
+		D55276CA2010A77D00D3D025 /* down_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_blue@2x.png"; sourceTree = "<group>"; };
+		D55276CB2010A77D00D3D025 /* XDMultTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMultTableView.h; sourceTree = "<group>"; };
 		D566A333200C3A1C00D8F877 /* MBProgressHUD+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MP.m"; sourceTree = "<group>"; };
 		D566A334200C3A1C00D8F877 /* MBProgressHUD+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MP.h"; sourceTree = "<group>"; };
 		D566A339200C3CD100D8F877 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 		D5D914EF2007188700FD94E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5D914F22007188700FD94E9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D5D914F32007188700FD94E9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D5F114682011C94F008990C4 /* ZLInfoRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLInfoRecordTableViewCell.h; sourceTree = "<group>"; };
+		D5F114692011C94F008990C4 /* ZLInfoRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLInfoRecordTableViewCell.m; sourceTree = "<group>"; };
 		D5FA52FF200EE50300300811 /* ZLHomeTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHomeTopView.h; sourceTree = "<group>"; };
 		D5FA5300200EE50300300811 /* ZLHomeTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHomeTopView.m; sourceTree = "<group>"; };
 		D5FA5302200EE9BA00300811 /* ZLHomeCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHomeCenterView.h; sourceTree = "<group>"; };
@@ -537,8 +545,20 @@
 				D55276BF20106EB800D3D025 /* ZLShipInfoView.m */,
 				D55276C5201095BA00D3D025 /* ZLShipBaseBottomView.h */,
 				D55276C6201095BA00D3D025 /* ZLShipBaseBottomView.m */,
+				D5F114682011C94F008990C4 /* ZLInfoRecordTableViewCell.h */,
+				D5F114692011C94F008990C4 /* ZLInfoRecordTableViewCell.m */,
 			);
 			path = ZLShipBaseDetailView;
+			sourceTree = "<group>";
+		};
+		D55276C82010A77D00D3D025 /* XDMultTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D55276C92010A77D00D3D025 /* XDMultTableView.m */,
+				D55276CA2010A77D00D3D025 /* down_blue@2x.png */,
+				D55276CB2010A77D00D3D025 /* XDMultTableView.h */,
+			);
+			path = XDMultTableView;
 			sourceTree = "<group>";
 		};
 		D566A332200C3A1C00D8F877 /* MBProgressTool */ = {
@@ -926,6 +946,7 @@
 		D5D914FE2007188800FD94E9 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				D55276C82010A77D00D3D025 /* XDMultTableView */,
 			);
 			path = Vender;
 			sourceTree = "<group>";
@@ -1007,6 +1028,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55276CD2010A77D00D3D025 /* down_blue@2x.png in Resources */,
 				D5D914E42007125100FD94E9 /* LaunchScreen.storyboard in Resources */,
 				D5D914E12007125100FD94E9 /* Assets.xcassets in Resources */,
 				D5D914DF2007125100FD94E9 /* Main.storyboard in Resources */,
@@ -1135,6 +1157,7 @@
 				D566A35D200C3CD100D8F877 /* JRSwizzle.m in Sources */,
 				D5FA532E200F466700300811 /* ZLSelectInfoView.m in Sources */,
 				D566A35A200C3CD100D8F877 /* UIView+RoundedCorner.m in Sources */,
+				D55276CC2010A77D00D3D025 /* XDMultTableView.m in Sources */,
 				D5FA5322200F174C00300811 /* ZLImportantTodayTableViewCell.m in Sources */,
 				D5FA5310200EEF0200300811 /* ZLHomeDynamicView.m in Sources */,
 				D52966132008A646002E3241 /* BaseViewController.m in Sources */,
@@ -1147,6 +1170,7 @@
 				D566A355200C3CD100D8F877 /* UILabel+ZLLeftAndRight.m in Sources */,
 				D566A335200C3A1C00D8F877 /* MBProgressHUD+MP.m in Sources */,
 				D52966182008A75C002E3241 /* Reachability.m in Sources */,
+				D5F1146A2011C94F008990C4 /* ZLInfoRecordTableViewCell.m in Sources */,
 				D5FA5316200EF22F00300811 /* ZLHomeBottomCollectionViewCell.m in Sources */,
 				D5FA531C200F01AB00300811 /* ZLImportantTodayVC.m in Sources */,
 				D5D914E72007125100FD94E9 /* main.m in Sources */,
