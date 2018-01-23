@@ -11,6 +11,7 @@
 #import "ZLHomeCenterView.h"
 #import "ZLHomeDynamicView.h"
 #import "ZLHomeBottomView.h"
+#import "ZLHomeCenterOrderVC.h"
 @interface ZLHomeVC ()
 @property (nonatomic, strong) ZLHomeTopView *homeTopView;
 @property (nonatomic, strong) ZLHomeCenterView *homeCenterView;
@@ -27,6 +28,19 @@
     [self.view addSubview:self.homeCenterView];
     [self.view addSubview:self.homeDynamicView];
     [self.view addSubview:self.homeBottomView];
+    
+     __weak typeof(self) weakSelf = self;
+    self.homeBottomView.bottomViewBlock = ^(ZLHomeBottomCollectionModel *model, NSIndexPath *indexpath) {
+        if ([model.title isEqualToString:@"中心指令"]) {
+            
+            ZLHomeCenterOrderVC *vc = [[ZLHomeCenterOrderVC alloc]init];
+            
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
+        }
+    };
+    
+    
 }
 
 - (NSMutableAttributedString *)setTitle{

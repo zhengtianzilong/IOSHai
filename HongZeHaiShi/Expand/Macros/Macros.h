@@ -10,7 +10,7 @@
 //中文字体iOS8
 #define CHINESE_FONT_NAME  @"Heiti SC"
 #define CHINESE_SYSTEM(x) [UIFont fontWithName:CHINESE_FONT_NAME size:x]
-
+#define Font(x) [UIFont systemFontOfSize:x]
 //中文字体粗体
 #define CHINESE_FONT_NAMEBold  @"Helvetica-Bold"
 #define CHINESE_SYSTEMBold(x) [UIFont fontWithName:CHINESE_FONT_NAMEBold size:x]

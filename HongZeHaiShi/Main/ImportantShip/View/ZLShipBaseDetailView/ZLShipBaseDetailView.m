@@ -9,7 +9,8 @@
 #import "ZLShipBaseDetailView.h"
 #import "XDMultTableView.h"
 #import "ZLInfoRecordTableViewCell.h"
-@interface ZLShipBaseDetailView()<XDMultTableViewDatasource,XDMultTableViewDelegate>
+#import "YUFoldingTableView.h"
+@interface ZLShipBaseDetailView()<XDMultTableViewDatasource,XDMultTableViewDelegate, YUFoldingTableViewDelegate>
 
 @property (nonatomic, strong) UILabel *baseInfoLabel;
 @property (nonatomic, strong) ZLShipBaseTopInfoView *topInfoView;
@@ -17,7 +18,8 @@
 @property (nonatomic, strong) UIButton *cancelImaportantBtn;
 @property (nonatomic, strong) UILabel *infoQueryLabel;
 
-@property (nonatomic, strong) XDMultTableView *mainTableView;;
+//@property (nonatomic, strong) XDMultTableView *mainTableView;
+@property (nonatomic, strong) YUFoldingTableView *mainTableView;
 // 现场执法
 @property (nonatomic, strong) UIButton *startWorkBtn;
 
@@ -92,7 +94,7 @@
         
         make.left.equalTo(self);
         make.top.equalTo(self.infoQueryLabel.mas_bottom).offset(0);
-        make.height.mas_equalTo(80);
+        make.height.mas_equalTo(100);
         make.width.mas_equalTo(Main_Screen_Width);
 //        make.bottom.equalTo(self.mas_bottom);
     }];
@@ -226,6 +228,77 @@
 }
 
 
+
+
+
+
+// 返回箭头的位置
+- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
+{
+    return YUFoldingSectionHeaderArrowPositionLeft;
+}
+- (NSInteger )numberOfSectionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
+{
+    return 2;
+}
+- (NSInteger )yuFoldingTableView:(YUFoldingTableView *)yuTableView numberOfRowsInSection:(NSInteger )section
+{
+    return 3;
+}
+- (CGFloat )yuFoldingTableView:(YUFoldingTableView *)yuTableView heightForHeaderInSection:(NSInteger )section
+{
+    return 50;
+}
+- (CGFloat )yuFoldingTableView:(YUFoldingTableView *)yuTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"Title %ld",section];
+}
+- (UITableViewCell *)yuFoldingTableView:(YUFoldingTableView *)yuTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"cellID";
+    UITableViewCell *cell = [yuTableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld",indexPath.row];
+    return cell;
+}
+
+- (void )yuFoldingTableView:(YUFoldingTableView *)yuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [yuTableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)yuFoldingTableView:(YUFoldingTableView *)yuTableView tapHeader:(CGFloat)height{
+    
+    [self.mainTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self);
+        make.top.equalTo(self.infoQueryLabel.mas_bottom).offset(0);
+        make.height.mas_equalTo(height);
+        make.width.mas_equalTo(Main_Screen_Width);
+        //        make.bottom.equalTo(self.mas_bottom);
+        
+    }];
+    
+}
+
+
+#pragma mark - YUFoldingTableViewDelegate / optional （可选择实现的）
+- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView descriptionForHeaderInSection:(NSInteger )section
+{
+    return @"detailText";
+}
+
+
+
+
+
+
+
 - (UILabel *)baseInfoLabel{
     if (!_baseInfoLabel) {
         _baseInfoLabel = [[UILabel alloc]init];
@@ -270,19 +343,35 @@
     return _infoQueryLabel;
 }
 
-- (XDMultTableView *)mainTableView{
-    if (!_mainTableView) {
-        _mainTableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 300)];
-//        _mainTableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
-        _mainTableView.delegate = self;
-        _mainTableView.datasource = self;
-//        _mainTableView.autoAdjustOpenAndClose = YES;
-        _mainTableView.backgroundColor = [UIColor whiteColor];
-        _mainTableView.tableView.scrollEnabled = NO;
-        _mainTableView.autoAdjustOpenAndClose = NO;
-    }
-    return _mainTableView;
+//- (XDMultTableView *)mainTableView{
+//    if (!_mainTableView) {
+//        _mainTableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 300)];
+////        _mainTableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
+//        _mainTableView.delegate = self;
+//        _mainTableView.datasource = self;
+////        _mainTableView.autoAdjustOpenAndClose = YES;
+//        _mainTableView.backgroundColor = [UIColor whiteColor];
+//        _mainTableView.tableView.scrollEnabled = NO;
+//        _mainTableView.autoAdjustOpenAndClose = NO;
+//    }
+//    return _mainTableView;
+//}
+
+- (YUFoldingTableView *)mainTableView{
+        if (!_mainTableView) {
+            _mainTableView = [[YUFoldingTableView alloc] initWithFrame:CGRectZero];
+    //        _mainTableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
+            _mainTableView.foldingDelegate = self;
+//            _mainTableView.datasource = self;
+    //        _mainTableView.autoAdjustOpenAndClose = YES;
+            _mainTableView.backgroundColor = [UIColor whiteColor];
+            _mainTableView.scrollEnabled = NO;
+//            _mainTableView.autoAdjustOpenAndClose = NO;
+        }
+        return _mainTableView;
 }
+
+
 - (UIButton *)startWorkBtn{
     if (!_startWorkBtn) {
         _startWorkBtn = [[UIButton alloc]init];

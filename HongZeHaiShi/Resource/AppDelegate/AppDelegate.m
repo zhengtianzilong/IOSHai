@@ -10,6 +10,7 @@
 #import "ZLMainTabarVC.h"
 #import "ZLLoginViewController.h"
 #import <FLEX/FLEX.h>
+//#import "SelwynFormViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,18 +23,22 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [self.window makeKeyAndVisible];
-    
+    FLEXManager *flexManager = [FLEXManager sharedManager];
+    [flexManager showExplorer];
+   
+    [self configIQKeyBoard];
     ZLMainTabarVC *mainTabarVC = [[ZLMainTabarVC alloc]init];
     
     ZLLoginViewController *loginVC = [[ZLLoginViewController alloc]init];
     
-    self.window.rootViewController = loginVC;
+//    SelwynFormViewController *selvc = [[SelwynFormViewController alloc]init];
     
-    [self configIQKeyBoard];
+    self.window.rootViewController = loginVC
+    ;
+     [self.window makeKeyAndVisible];
     
-    FLEXManager *flexManager = [FLEXManager sharedManager];
-    [flexManager showExplorer];
+    
+
     
     
     
