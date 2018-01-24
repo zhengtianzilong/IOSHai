@@ -69,11 +69,8 @@
 - (void)loginClick{
     
     [self removeFromParentViewController];
-    
+    self.view = nil;
     ZLMainTabarVC *mainTabarVC = [[ZLMainTabarVC alloc]init];
-        
-
-    
     [UIApplication sharedApplication].keyWindow.rootViewController = mainTabarVC;
 
     

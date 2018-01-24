@@ -38,9 +38,23 @@
 {
     [super layoutSubviews];
 
-//    self.imageV.frame = CGRectMake(Main_Screen_Width - TitleHeight, EdgeMarin, TitleHeight, TitleHeight);
-//
-//    self.imageV.image = [UIImage imageNamed:_formItem.imageName];
+
+    
+    self.imageV.frame = CGRectMake(Main_Screen_Width - TitleHeight, EdgeMarin, TitleHeight, TitleHeight);
+
+    CGPoint centerPoint = self.imageV.center;
+    
+    centerPoint.y = self.contentView.center.y;
+    
+    self.imageV.center = centerPoint;
+    
+    self.imageV.image = [UIImage imageNamed:_formItem.imageName];
+    
+    self.titleLabel.frame = CGRectMake(EdgeMarin, EdgeMarin, TitleWidth, TitleHeight);
+
+    CGFloat newHeight = [ZLFormInputAndImageTableViewCell cellHeightWithItem:_formItem];
+
+    self.textView.frame = CGRectMake(TitleWidth + 2*EdgeMarin, EdgeMarin, Main_Screen_Width - (TitleWidth + TitleHeight + 3*EdgeMarin), MAX(TitleHeight, newHeight - EdgeMarin));
     
 //    self.titleLabel.frame = CGRectMake(EdgeMarin, EdgeMarin, TitleWidth, TitleHeight);
 //
@@ -48,18 +62,12 @@
 //
 //    self.textView.frame = CGRectMake(TitleWidth + 2*EdgeMarin, EdgeMarin, Main_Screen_Width - (TitleWidth + 3*EdgeMarin), MAX(TitleHeight, newHeight - EdgeMarin));
     
-    self.titleLabel.frame = CGRectMake(EdgeMarin, EdgeMarin, TitleWidth, TitleHeight);
-    
-    CGFloat newHeight = [ZLFormInputAndImageTableViewCell cellHeightWithItem:_formItem];
-    
-    self.textView.frame = CGRectMake(TitleWidth + 2*EdgeMarin, EdgeMarin, Main_Screen_Width - (TitleWidth + 3*EdgeMarin), MAX(TitleHeight, newHeight - EdgeMarin));
-    
 }
 
 #pragma mark -- cell height
 + (CGFloat)cellHeightWithItem:(SelwynFormItem *)item
 {
-    CGSize detailSize = [SelwynFormHandle getSizeWithString:item.formDetail Font:Font(TitleFont) maxSize:CGSizeMake(Main_Screen_Width - (TitleWidth + 3*EdgeMarin), MAXFLOAT)];
+    CGSize detailSize = [SelwynFormHandle getSizeWithString:item.formDetail Font:Font(TitleFont) maxSize:CGSizeMake(Main_Screen_Width - (TitleWidth + 3*EdgeMarin + TitleHeight), MAXFLOAT)];
     
     return MAX(TitleHeight+2*EdgeMarin ,detailSize.height + 2*EdgeMarin);
 }

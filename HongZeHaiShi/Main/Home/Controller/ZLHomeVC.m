@@ -12,6 +12,7 @@
 #import "ZLHomeDynamicView.h"
 #import "ZLHomeBottomView.h"
 #import "ZLHomeCenterOrderVC.h"
+#import "ZLHomeShipQueryVC.h"
 @interface ZLHomeVC ()
 @property (nonatomic, strong) ZLHomeTopView *homeTopView;
 @property (nonatomic, strong) ZLHomeCenterView *homeCenterView;
@@ -30,6 +31,16 @@
     [self.view addSubview:self.homeBottomView];
     
      __weak typeof(self) weakSelf = self;
+    
+    self.homeCenterView.centerItemBlock = ^(ZLHomeCenterCollectionModel *model, NSIndexPath *indexpath) {
+      
+        if ([model.title isEqualToString:@"船舶查询"]) {
+            ZLHomeShipQueryVC *vc = [[ZLHomeShipQueryVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        
+    };
+    
     self.homeBottomView.bottomViewBlock = ^(ZLHomeBottomCollectionModel *model, NSIndexPath *indexpath) {
         if ([model.title isEqualToString:@"中心指令"]) {
             

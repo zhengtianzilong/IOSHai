@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZLBaseCustomNavViewController.h"
 /* submitblock */
-typedef void(^FormCompletion)();
+typedef void(^FormCompletion)(void);
 
-@interface SelwynFormBaseViewController : UIViewController
+@interface SelwynFormBaseViewController : ZLBaseCustomNavViewController
 
 /*baseTableView*/
 @property (nonatomic, strong) UITableView *formTableView;
@@ -19,9 +19,12 @@ typedef void(^FormCompletion)();
 /* datasource */
 @property (nonatomic, strong) NSMutableArray *mutableArray;
 
+@property (nonatomic, strong) UIButton *queryButton;
 
 /* Designated initializer */
 - (instancetype)initWithStyle:(UITableViewStyle)style;
+
+- (void)updateFormInputWithText:(NSString *)text indexPath:(NSIndexPath *)indexPath;
 
 #pragma mark -- setCommitButton
 - (void)_setCommitItem;

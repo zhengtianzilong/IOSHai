@@ -8,12 +8,15 @@
 
 #import "ZLSelectInfoView.h"
 #import "ZLTimeSelectView.h"
+#import "ZLLabelAndTextFieldView.h"
 @interface ZLSelectInfoView ()
-@property (nonatomic, strong) UILabel *shipLabel;
+//@property (nonatomic, strong) UILabel *shipLabel;
+//
+//@property (nonatomic, strong) UITextField *shipTextField;
+//
+//@property (nonatomic, strong) UIView *shipLineView;
 
-@property (nonatomic, strong) UITextField *shipTextField;
-
-@property (nonatomic, strong) UIView *shipLineView;
+@property (nonatomic, strong) ZLLabelAndTextFieldView *shipName;
 
 @property (nonatomic, strong) ZLTimeSelectView *startTimeView;
 @property (nonatomic, strong) ZLTimeSelectView *endTimeView;
@@ -27,10 +30,10 @@
         
         self.backgroundColor = [UIColor whiteColor];
         
-        [self addSubview:self.shipLabel];
-        [self addSubview:self.shipTextField];
-        [self addSubview:self.shipLineView];
-        
+//        [self addSubview:self.shipLabel];
+//        [self addSubview:self.shipTextField];
+//        [self addSubview:self.shipLineView];
+        [self addSubview:self.shipName];
         [self addSubview:self.startTimeView];
         [self addSubview:self.lineView];
         [self addSubview:self.endTimeView];
@@ -42,34 +45,41 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.shipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(10);
-        make.top.equalTo(self).offset(0);
-        make.height.mas_equalTo(40);
-        
-    }];
+//    [self.shipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(10);
+//        make.top.equalTo(self).offset(0);
+//        make.height.mas_equalTo(40);
+//
+//    }];
+//
+//    [self.shipTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.shipLabel.mas_right).offset(0);
+//        make.top.equalTo(self.mas_top).offset(0);
+//        make.height.mas_equalTo(40);
+//        make.right.equalTo(self.mas_right);
+//
+//    }];
+//
+//    [self.shipLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(0);
+//        make.top.equalTo(self.shipTextField.mas_bottom).offset(0);
+//        make.height.mas_equalTo(1);
+//        make.right.equalTo(self.mas_right);
+//    }];
     
-    [self.shipTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.shipLabel.mas_right).offset(0);
-        make.top.equalTo(self.mas_top).offset(0);
-        make.height.mas_equalTo(40);
-        make.right.equalTo(self.mas_right);
-        
-    }];
-    
-    [self.shipLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.shipName mas_remakeConstraints:^(MASConstraintMaker *make) {
+       
         make.left.equalTo(self).offset(0);
-        make.top.equalTo(self.shipTextField.mas_bottom).offset(0);
-        make.height.mas_equalTo(1);
+        make.top.equalTo(self).offset(0);
+        make.height.mas_equalTo(41);
         make.right.equalTo(self.mas_right);
     }];
-    
     
     
     [self.startTimeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
         make.right.equalTo(self.mas_right).offset(0);
-        make.top.equalTo(self.shipLineView.mas_bottom).offset(0);
+        make.top.equalTo(self.shipName.mas_bottom).offset(0);
         make.height.mas_equalTo(40);
     }];
     
@@ -91,36 +101,45 @@
     }];
 }
 
-- (UILabel *)shipLabel{
-    if (!_shipLabel) {
+- (ZLLabelAndTextFieldView *)shipName{
+    if (!_shipName) {
         
-        _shipLabel = [[UILabel alloc]init];
-        [_shipLabel setText:@"船舶名称:"];
-        _shipLabel.backgroundColor = [UIColor whiteColor];
-        _shipLabel.font = CHINESE_SYSTEM(15);
+        _shipName = [[ZLLabelAndTextFieldView alloc]initWithFrame:CGRectZero title:@"船舶名称:" placeHolder:@"请输入船舶名称"];
         
     }
-    return _shipLabel;
-    
-    
+    return _shipName;
 }
 
-- (UITextField *)shipTextField{
-    if (!_shipTextField) {
-        _shipTextField = [[UITextField alloc]init];
-        _shipTextField.placeholder = @"请输入船舶名称";
-        _shipTextField.backgroundColor = [UIColor whiteColor];
-        
-    }
-    return _shipTextField;
-}
-- (UIView *)shipLineView{
-    if (!_shipLineView) {
-        _shipLineView = [[UIView alloc]init];
-        _shipLineView.backgroundColor = [UIColor redColor];
-    }
-    return _shipLineView;
-}
+//- (UILabel *)shipLabel{
+//    if (!_shipLabel) {
+//
+//        _shipLabel = [[UILabel alloc]init];
+//        [_shipLabel setText:@"船舶名称:"];
+//        _shipLabel.backgroundColor = [UIColor whiteColor];
+//        _shipLabel.font = CHINESE_SYSTEM(15);
+//
+//    }
+//    return _shipLabel;
+//
+//
+//}
+//
+//- (UITextField *)shipTextField{
+//    if (!_shipTextField) {
+//        _shipTextField = [[UITextField alloc]init];
+//        _shipTextField.placeholder = @"请输入船舶名称";
+//        _shipTextField.backgroundColor = [UIColor whiteColor];
+//
+//    }
+//    return _shipTextField;
+//}
+//- (UIView *)shipLineView{
+//    if (!_shipLineView) {
+//        _shipLineView = [[UIView alloc]init];
+//        _shipLineView.backgroundColor = [UIColor redColor];
+//    }
+//    return _shipLineView;
+//}
 
 
 - (ZLTimeSelectView *)startTimeView{

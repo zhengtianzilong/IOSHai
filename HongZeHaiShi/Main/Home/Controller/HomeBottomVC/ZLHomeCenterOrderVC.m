@@ -10,6 +10,7 @@
 #import "SelwynFormItem.h"
 #import "SelwynFormHandle.h"
 #import "SelwynFormSectionItem.h"
+#import "ZLHomeShipQueryVC.h"
 @interface ZLHomeCenterOrderVC ()
 
 @end
@@ -19,9 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSMutableArray *datas = [NSMutableArray array];
-    SelwynFormItem *name = SelwynItemMake(@"船舶名称:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+//    SelwynFormItem *name = SelwynItemMake(@"船舶名称:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+//
+//     [datas addObject:name];
+    
+    SelwynFormItem *name = SelwynItemMake(@"船舶名称:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
     name.placeholder = @"选填";
-     [datas addObject:name];
+    [datas addObject:name];
+    
+    name.selectHandle = ^(SelwynFormItem *item) {
+        ZLHomeShipQueryVC *vc = [[ZLHomeShipQueryVC alloc]init];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        NSLog(@"点击了name");
+        
+    };
+    
     
     SelwynFormItem *taskTitle = SelwynItemMake(@"任务标题:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
     taskTitle.placeholder = @"请输入标题";
@@ -37,6 +52,9 @@
     };
     
     SelwynFormItem *time = SelwynItemMake(@"下发时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
+    
+    time.imageName =  @"day_rivers_total";
+    
     [datas addObject:time];
     
     time.selectHandle = ^(SelwynFormItem *item) {
@@ -45,20 +63,15 @@
         
     };
     
-    SelwynFormItem *xxx = SelwynItemMake(@"任务标题:", @"", SelwynFormCellTypeInputAndImage, UIKeyboardTypeDefault, YES, NO);
-    xxx.placeholder = @"请输入标题";
-    xxx.imageName = @"day_rivers_total";
-    [datas addObject:xxx];
+//    SelwynFormItem *xxx = SelwynItemMake(@"任务标题:", @"", SelwynFormCellTypeInputAndImage, UIKeyboardTypeDefault, YES, NO);
+//    xxx.placeholder = @"请输入标题";
+//    xxx.imageName = @"day_rivers_total";
+//    [datas addObject:xxx];
     
     SelwynFormItem *content = SelwynDetailItemMake(@"任务内容", @"", SelwynFormCellTypeTextViewInput);
     content.editable = YES;
     content.placeholder = @"请填写内容";
     [datas addObject:content];
-    
-    
-  
-    
-    
     
     SelwynFormSectionItem *sectionItem = [[SelwynFormSectionItem alloc]init];
     sectionItem.cellItems = datas;

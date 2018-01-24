@@ -43,6 +43,9 @@
 		D59A4D74200ED30A00382BF9 /* ZLMyTaskVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D73200ED30A00382BF9 /* ZLMyTaskVC.m */; };
 		D59A4D77200ED35C00382BF9 /* ZLMyWaitDealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D76200ED35C00382BF9 /* ZLMyWaitDealVC.m */; };
 		D59A4D7A200ED37E00382BF9 /* ZLMyCompletedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D79200ED37E00382BF9 /* ZLMyCompletedVC.m */; };
+		D59E808320185A8E0024E5CC /* ZLHomeShipQueryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E808220185A8E0024E5CC /* ZLHomeShipQueryVC.m */; };
+		D59E80862018865F0024E5CC /* ZLLabelAndTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E80852018865F0024E5CC /* ZLLabelAndTextFieldView.m */; };
+		D59E808A20188F4E0024E5CC /* ZLHoomeShipQueryTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E808920188F4E0024E5CC /* ZLHoomeShipQueryTopView.m */; };
 		D5A1F3E4200DD35A0087F062 /* ZLMeBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3E3200DD35A0087F062 /* ZLMeBottomView.m */; };
 		D5A1F3E7200DD51B0087F062 /* ZLMeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3E6200DD51B0087F062 /* ZLMeCollectionViewCell.m */; };
 		D5A1F3EB200DD5880087F062 /* UIButton+JKImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3E9200DD5870087F062 /* UIButton+JKImagePosition.m */; };
@@ -169,6 +172,12 @@
 		D59A4D76200ED35C00382BF9 /* ZLMyWaitDealVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMyWaitDealVC.m; sourceTree = "<group>"; };
 		D59A4D78200ED37E00382BF9 /* ZLMyCompletedVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMyCompletedVC.h; sourceTree = "<group>"; };
 		D59A4D79200ED37E00382BF9 /* ZLMyCompletedVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMyCompletedVC.m; sourceTree = "<group>"; };
+		D59E808120185A8E0024E5CC /* ZLHomeShipQueryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHomeShipQueryVC.h; sourceTree = "<group>"; };
+		D59E808220185A8E0024E5CC /* ZLHomeShipQueryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHomeShipQueryVC.m; sourceTree = "<group>"; };
+		D59E80842018865F0024E5CC /* ZLLabelAndTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLLabelAndTextFieldView.h; sourceTree = "<group>"; };
+		D59E80852018865F0024E5CC /* ZLLabelAndTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLLabelAndTextFieldView.m; sourceTree = "<group>"; };
+		D59E808820188F4E0024E5CC /* ZLHoomeShipQueryTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHoomeShipQueryTopView.h; sourceTree = "<group>"; };
+		D59E808920188F4E0024E5CC /* ZLHoomeShipQueryTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHoomeShipQueryTopView.m; sourceTree = "<group>"; };
 		D5A1F3E1200DA1550087F062 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		D5A1F3E2200DD35A0087F062 /* ZLMeBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMeBottomView.h; sourceTree = "<group>"; };
 		D5A1F3E3200DD35A0087F062 /* ZLMeBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMeBottomView.m; sourceTree = "<group>"; };
@@ -306,12 +315,12 @@
 		D52965E120085ADD002E3241 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D59E808020185A420024E5CC /* HomeTopVC */,
+				D59E807F20185A2D0024E5CC /* HomeBottomVC */,
 				D52965FD200860E5002E3241 /* ZLHomeVC.h */,
 				D52965FE200860E5002E3241 /* ZLHomeVC.m */,
 				D5B363AC2017163300AB9FD9 /* SelwynFormViewController.h */,
 				D5B363AB2017163300AB9FD9 /* SelwynFormViewController.m */,
-				D5F6B1122015D31100B9B813 /* ZLHomeCenterOrderVC.h */,
-				D5F6B1132015D31100B9B813 /* ZLHomeCenterOrderVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,8 +339,7 @@
 		D52965E320085ADD002E3241 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D5FA52FF200EE50300300811 /* ZLHomeTopView.h */,
-				D5FA5300200EE50300300811 /* ZLHomeTopView.m */,
+				D59E808720188EC20024E5CC /* ZLHomeTopView */,
 				D5FA5302200EE9BA00300811 /* ZLHomeCenterView.h */,
 				D5FA5303200EE9BA00300811 /* ZLHomeCenterView.m */,
 				D5FA530E200EEF0200300811 /* ZLHomeDynamicView.h */,
@@ -568,6 +576,8 @@
 				D5FA532A200F335F00300811 /* ZLThreeButtonView.m */,
 				D5FA532C200F466700300811 /* ZLSelectInfoView.h */,
 				D5FA532D200F466700300811 /* ZLSelectInfoView.m */,
+				D59E80842018865F0024E5CC /* ZLLabelAndTextFieldView.h */,
+				D59E80852018865F0024E5CC /* ZLLabelAndTextFieldView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -809,6 +819,35 @@
 				D5A1F3FA200DF9A10087F062 /* ZLMeChangePasswordView.m */,
 			);
 			path = MyChangePassword;
+			sourceTree = "<group>";
+		};
+		D59E807F20185A2D0024E5CC /* HomeBottomVC */ = {
+			isa = PBXGroup;
+			children = (
+				D5F6B1122015D31100B9B813 /* ZLHomeCenterOrderVC.h */,
+				D5F6B1132015D31100B9B813 /* ZLHomeCenterOrderVC.m */,
+			);
+			path = HomeBottomVC;
+			sourceTree = "<group>";
+		};
+		D59E808020185A420024E5CC /* HomeTopVC */ = {
+			isa = PBXGroup;
+			children = (
+				D59E808120185A8E0024E5CC /* ZLHomeShipQueryVC.h */,
+				D59E808220185A8E0024E5CC /* ZLHomeShipQueryVC.m */,
+			);
+			path = HomeTopVC;
+			sourceTree = "<group>";
+		};
+		D59E808720188EC20024E5CC /* ZLHomeTopView */ = {
+			isa = PBXGroup;
+			children = (
+				D5FA52FF200EE50300300811 /* ZLHomeTopView.h */,
+				D5FA5300200EE50300300811 /* ZLHomeTopView.m */,
+				D59E808820188F4E0024E5CC /* ZLHoomeShipQueryTopView.h */,
+				D59E808920188F4E0024E5CC /* ZLHoomeShipQueryTopView.m */,
+			);
+			path = ZLHomeTopView;
 			sourceTree = "<group>";
 		};
 		D5A1F3E8200DD56C0087F062 /* UIButton */ = {
@@ -1304,6 +1343,7 @@
 				D5A1F3FE200DFE720087F062 /* ZLBaseNavgationViewController.m in Sources */,
 				D52965FF200860E5002E3241 /* ZLHomeVC.m in Sources */,
 				D55276BD20106D6900D3D025 /* ZLShipBaseDetailView.m in Sources */,
+				D59E808320185A8E0024E5CC /* ZLHomeShipQueryVC.m in Sources */,
 				D5B3651D201722F900AB9FD9 /* SelwynFormItem.m in Sources */,
 				D566A355200C3CD100D8F877 /* UILabel+ZLLeftAndRight.m in Sources */,
 				D566A335200C3A1C00D8F877 /* MBProgressHUD+MP.m in Sources */,
@@ -1325,6 +1365,7 @@
 				D5A1F3E4200DD35A0087F062 /* ZLMeBottomView.m in Sources */,
 				D55276C32010909300D3D025 /* ZLShipBaseTopInfoView.m in Sources */,
 				D5B3651E201722F900AB9FD9 /* SelwynFormHandle.m in Sources */,
+				D59E808A20188F4E0024E5CC /* ZLHoomeShipQueryTopView.m in Sources */,
 				D5F6B0E9201571B500B9B813 /* YUFoldingSectionHeader.m in Sources */,
 				D529660E20086304002E3241 /* ZLMainTabarVC.m in Sources */,
 				D566A354200C3CD100D8F877 /* UIImage+Color.m in Sources */,
@@ -1341,6 +1382,7 @@
 				D566A378200C8AB800D8F877 /* ZLLoginBottomView.m in Sources */,
 				D52966052008610E002E3241 /* ZLTodayVC.m in Sources */,
 				D566A37C200CA69D00D8F877 /* ZLMeTopView.m in Sources */,
+				D59E80862018865F0024E5CC /* ZLLabelAndTextFieldView.m in Sources */,
 				D5FA5307200EEA4100300811 /* ZLHomeCenterCollectionViewCell.m in Sources */,
 				D52965FC200860C3002E3241 /* ZLImportantShipVC.m in Sources */,
 				D5B3651A201722F900AB9FD9 /* SelwynFormBaseTableViewCell.m in Sources */,

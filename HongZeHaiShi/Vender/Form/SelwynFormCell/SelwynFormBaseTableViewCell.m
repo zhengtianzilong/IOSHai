@@ -55,7 +55,7 @@
     if (!_imageV) {
         
         _imageV = [[UIImageView alloc]init];
-//        [self.contentView addSubview:_imageV];
+        [self.contentView addSubview:_imageV];
     }
     return _imageV;
 }

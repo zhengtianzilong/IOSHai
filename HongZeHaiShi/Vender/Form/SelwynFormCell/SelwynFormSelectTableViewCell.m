@@ -24,7 +24,7 @@
     self.textView.textAlignment = formItem.textAlignment;
     self.textView.attributedPlaceholder = formItem.attributedPlaceholder;
     
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (void)layoutSubviews
@@ -32,6 +32,16 @@
     [super layoutSubviews];
     
     self.titleLabel.frame = CGRectMake(EdgeMarin, EdgeMarin, TitleWidth, TitleHeight);
+    
+    self.imageV.frame = CGRectMake(Main_Screen_Width - TitleHeight, EdgeMarin, TitleHeight, TitleHeight);
+    
+//    CGPoint centerPoint = self.imageV.center;
+//
+//    centerPoint.y = self.contentView.center.y;
+//
+//    self.imageV.center = centerPoint;
+    
+    self.imageV.image = [UIImage imageNamed:_formItem.imageName];
     
     CGFloat newHeight = [SelwynFormSelectTableViewCell cellHeightWithItem:_formItem];
     

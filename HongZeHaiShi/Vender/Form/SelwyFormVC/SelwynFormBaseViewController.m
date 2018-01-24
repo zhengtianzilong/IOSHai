@@ -19,6 +19,7 @@
 #import "ZLFormInputAndImageTableViewCell.h"
 @interface SelwynFormBaseViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, readonly) UITableViewStyle style;
+
 @end
 
 @implementation SelwynFormBaseViewController
@@ -149,6 +150,7 @@
     }
 }
 
+
 #pragma mark -- 更新附件
 - (void)updatedAttachments:(NSArray *)images indexPath:(NSIndexPath *)indexPath{
     
@@ -242,7 +244,9 @@
         titleLabel.text = sectionItem.footerTitle;
         titleLabel.textColor = sectionItem.footerTitleColor;
         
-        [footer addSubview:titleLabel];
+       [ footer addSubview:self.queryButton];
+        
+//        [footer addSubview:titleLabel];
     }
     
     return footer;
@@ -303,7 +307,17 @@
     }
 }
 
-
+- (UIButton *)queryButton{
+    if (!_queryButton) {
+        _queryButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, Main_Screen_Width - 20, 50)];
+        _queryButton.backgroundColor = HEXCOLOR(CNAVGATIONBAR_COLOR);
+        
+        [_queryButton setTitle:@"查询" forState:(UIControlStateNormal)];
+        
+    }
+    return _queryButton;
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
