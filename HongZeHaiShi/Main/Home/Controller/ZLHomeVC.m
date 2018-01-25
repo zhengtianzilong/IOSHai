@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     [self.view addSubview:self.homeTopView];
     [self.view addSubview:self.homeCenterView];
     [self.view addSubview:self.homeDynamicView];

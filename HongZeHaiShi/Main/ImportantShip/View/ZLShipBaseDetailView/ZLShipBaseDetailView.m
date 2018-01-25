@@ -30,7 +30,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
         [self setupUI];
     }
     return self;
@@ -142,7 +142,7 @@
     view.layer.backgroundColor  = [UIColor whiteColor].CGColor;
     view.layer.masksToBounds    = YES;
     view.layer.borderWidth      = 0.3;
-    view.layer.borderColor      = [UIColor lightGrayColor].CGColor;
+    view.layer.borderColor      = [HEXCOLOR(CVIEW_GRAY_COLOR) CGColor];
 
     cell.backgroundView = view;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -303,7 +303,7 @@
     if (!_baseInfoLabel) {
         _baseInfoLabel = [[UILabel alloc]init];
         _baseInfoLabel.font = CHINESE_SYSTEM(15);
-        _baseInfoLabel.backgroundColor = [UIColor lightGrayColor];
+        _baseInfoLabel.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
         _baseInfoLabel.text = @"基本信息";
     }
     return _baseInfoLabel;
@@ -337,7 +337,7 @@
     if (!_infoQueryLabel) {
         _infoQueryLabel = [[UILabel alloc]init];
         _infoQueryLabel.font = CHINESE_SYSTEM(15);
-        _infoQueryLabel.backgroundColor = [UIColor lightGrayColor];
+        _infoQueryLabel.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
         _infoQueryLabel.text = @"信息查询";
     }
     return _infoQueryLabel;

@@ -33,7 +33,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
         
 //        [self addSubview:self.shipLabel];
 //        [self addSubview:self.shipTextField];

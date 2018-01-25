@@ -128,7 +128,7 @@
     if (!_baseInfoLabel) {
         _baseInfoLabel = [[UILabel alloc]init];
         _baseInfoLabel.font = CHINESE_SYSTEM(15);
-        _baseInfoLabel.backgroundColor = [UIColor lightGrayColor];
+        _baseInfoLabel.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
         _baseInfoLabel.text = @"基本信息";
     }
     return _baseInfoLabel;

@@ -6,8 +6,12 @@
 //  Copyright © 2018年 xgzl. All rights reserved.
 //
 
-#import "SelwynFormBaseViewController.h"
+#import "ZLBaseCustomNavViewController.h"
 
-@interface ZLHomeShipQueryVC : SelwynFormBaseViewController
+typedef void(^shipQueryBlock)(NSString *name);
+
+@interface ZLHomeShipQueryVC : ZLBaseCustomNavViewController
+
+@property (nonatomic, copy) shipQueryBlock shipBlock;
 
 @end

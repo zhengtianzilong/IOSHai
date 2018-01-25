@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZLHoomeShipQueryTopView : UIView
+@interface ZLHomeShipQueryTopView : UIView
 
 @end

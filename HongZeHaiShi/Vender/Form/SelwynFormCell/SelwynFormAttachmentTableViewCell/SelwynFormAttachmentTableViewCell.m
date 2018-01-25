@@ -15,7 +15,7 @@
 #import <AVFoundation/AVCaptureDevice.h>
 #import <AVFoundation/AVMediaFormat.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-
+#import "ACSelectMediaView.h"
 #define IMAGE_MAX_SIZE_5k 5120*2880
 #define AttaWidth 81
 #define RowCount 4
@@ -50,7 +50,7 @@
 - (void)setFormItem:(SelwynFormItem *)formItem
 {
     _formItem = formItem;
-    
+//    _formItem.images = @[@1];
     self.addButton.hidden = !formItem.editable;
     self.images = [NSMutableArray arrayWithArray:formItem.images];
     self.titleLab.attributedText = formItem.formAttributedTitle;
@@ -59,17 +59,16 @@
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {
-        
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         layout.minimumInteritemSpacing = 9;
         layout.minimumLineSpacing = 15;
         
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor yellowColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.hidden = YES;
+//        _collectionView.hidden = YES;
         _collectionView.scrollEnabled = NO;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
@@ -77,7 +76,7 @@
         [_collectionView registerClass:[SelwynAttaCollectionViewCell
                                         class] forCellWithReuseIdentifier:cell_id];
         
-        [self.contentView addSubview:_collectionView];
+       [self.contentView addSubview:self.collectionView];
     }
     
     return _collectionView;
@@ -94,28 +93,28 @@
     return _titleLab;
 }
 
-- (UIImageView *)iconImageView
-{
-    if (!_iconImageView) {
-        
-        _iconImageView = [[UIImageView alloc]init];
-        _iconImageView.image = [UIImage imageNamed:@"ProjectInitial_Attachment"];
-        [self.contentView addSubview:_iconImageView];
-    }
-    
-    return _iconImageView;
-}
+//- (UIImageView *)iconImageView
+//{
+//    if (!_iconImageView) {
+//
+//        _iconImageView = [[UIImageView alloc]init];
+//        _iconImageView.image = [UIImage imageNamed:@"day_rivers_total"];
+////        [self.contentView addSubview:_iconImageView];
+//    }
+//
+//    return _iconImageView;
+//}
 
-- (UIButton *)addButton
-{
-    if (!_addButton) {
-        _addButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_addButton addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.contentView addSubview:_addButton];
-    }
-    return _addButton;
-}
+//- (UIButton *)addButton
+//{
+//    if (!_addButton) {
+//        _addButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//        [_addButton addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
+//
+////        [self.contentView addSubview:_addButton];
+//    }
+//    return _addButton;
+//}
 
 - (void)layoutSubviews
 {
@@ -124,16 +123,9 @@
     self.iconImageView.frame = CGRectMake(self.frame.size.width - 38, 12, 23, 20);
     self.addButton.frame = CGRectMake(0, 0, self.frame.size.width, _formItem.defaultCellHeight);
     
-    if (_formItem.images.count > 0) {
-        
-        self.collectionView.hidden = NO;
-        self.collectionView.frame = CGRectMake(0, _formItem.defaultCellHeight, self.frame.size.width, self.frame.size.height - _formItem.defaultCellHeight);
-        [self.collectionView reloadData];
-        
-    }else
-    {
-        self.collectionView.hidden = YES;
-    }
+    self.collectionView.frame = CGRectMake(0, _formItem.defaultCellHeight, self.frame.size.width, self.frame.size.height - _formItem.defaultCellHeight);
+    [self.collectionView reloadData];
+
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -143,12 +135,18 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _images.count;
+    return _images.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SelwynAttaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cell_id forIndexPath:indexPath];
+     SelwynAttaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cell_id forIndexPath:indexPath];
+    
+    if (indexPath.row == _formItem.images.count) {
+        cell.image = [UIImage imageNamed:@"day_rivers_total"];
+//        cell.videoImageView.hidden = YES;
+//        cell.deleteButton.hidden = YES;
+    }else{
     cell.editingEnable = _formItem.editable;
     cell.image = _formItem.images[indexPath.item];
     cell.deleteHandle = ^{
@@ -157,7 +155,7 @@
         
         [self refreshData];
     };
-    
+    }
     return cell;
 }
 
@@ -175,6 +173,17 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (indexPath.row == _formItem.images.count){
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
+        
+        actionSheet.tag = 555;
+        [actionSheet showInView:self.superview];
+        
+    }else{
+    
+    
     [self.photos removeAllObjects];
     
     for (int i = 0; i < self.images.count; i++) {
@@ -209,6 +218,7 @@
     [self.photoBrowser setCurrentPhotoIndex:indexPath.item];
     
     [[self superViewController:self] presentViewController:self.photoNavigationController animated:YES completion:nil];
+    }
 }
 
 - (void)addAction{
@@ -227,7 +237,7 @@
     [actionSheet showInView:self.superview];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet clicke00dButtonAtIndex:(NSInteger)buttonIndex
 {
     if (actionSheet.tag == 555) {
         
@@ -270,7 +280,7 @@
 
 - (void)localPhoto{
     
-    TZImagePickerController  *imagePickerVC = [[TZImagePickerController alloc] initWithMaxImagesCount:(_formItem.maxImageCount - self.images.count) delegate:self];
+    TZImagePickerController  *imagePickerVC = [[TZImagePickerController alloc] initWithMaxImagesCount:_formItem.maxImageCount delegate:self];
     
     imagePickerVC.allowPickingVideo = NO;
     
@@ -350,9 +360,9 @@
 #pragma mark -- 计算cellHeight
 + (CGFloat)cellHeightWithItem:(SelwynFormItem *)item
 {
-    NSInteger rows = item.images.count%RowCount > 0 ? item.images.count/RowCount+1:item.images.count/RowCount;
+    NSInteger rows = (item.images.count + 1)%RowCount > 0 ? (item.images.count + 1)/RowCount+1:(item.images.count + 1)/RowCount;
     
-    return item.images.count > 0 ? item.defaultCellHeight + 15*(rows+1) + rows*AttaWidth:44;
+    return (item.images.count + 1) > 0 ? item.defaultCellHeight + 15*(rows+1) + rows*AttaWidth:44;
 }
 
 #pragma mark - TZImagePickerControllerDelegate

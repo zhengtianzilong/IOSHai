@@ -40,12 +40,23 @@
 		D566A372200C8A8B00D8F877 /* ZLLoginInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D566A371200C8A8B00D8F877 /* ZLLoginInputView.m */; };
 		D566A378200C8AB800D8F877 /* ZLLoginBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D566A377200C8AB800D8F877 /* ZLLoginBottomView.m */; };
 		D566A37C200CA69D00D8F877 /* ZLMeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D566A37B200CA69D00D8F877 /* ZLMeTopView.m */; };
+		D5887D2B201972FE0021C138 /* ZLHomeShipQueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D2A201972FE0021C138 /* ZLHomeShipQueryTableViewCell.m */; };
+		D5887D482019A5D50021C138 /* ACMediaFrame.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D5887D342019A5D50021C138 /* ACMediaFrame.bundle */; };
+		D5887D492019A5D50021C138 /* UIView+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D3A2019A5D50021C138 /* UIView+ACMediaExt.m */; };
+		D5887D4A2019A5D50021C138 /* UIImage+ACGif.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D3B2019A5D50021C138 /* UIImage+ACGif.m */; };
+		D5887D4B2019A5D50021C138 /* UIImageView+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D3C2019A5D50021C138 /* UIImageView+ACMediaExt.m */; };
+		D5887D4C2019A5D50021C138 /* NSString+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D3D2019A5D50021C138 /* NSString+ACMediaExt.m */; };
+		D5887D4D2019A5D50021C138 /* UIViewController+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D3E2019A5D50021C138 /* UIViewController+ACMediaExt.m */; };
+		D5887D4E2019A5D50021C138 /* ACMediaImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D412019A5D50021C138 /* ACMediaImageCell.m */; };
+		D5887D4F2019A5D50021C138 /* ACMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D422019A5D50021C138 /* ACMediaModel.m */; };
+		D5887D502019A5D50021C138 /* ACMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D432019A5D50021C138 /* ACMediaManager.m */; };
+		D5887D512019A5D50021C138 /* ACSelectMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D472019A5D50021C138 /* ACSelectMediaView.m */; };
 		D59A4D74200ED30A00382BF9 /* ZLMyTaskVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D73200ED30A00382BF9 /* ZLMyTaskVC.m */; };
 		D59A4D77200ED35C00382BF9 /* ZLMyWaitDealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D76200ED35C00382BF9 /* ZLMyWaitDealVC.m */; };
 		D59A4D7A200ED37E00382BF9 /* ZLMyCompletedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D79200ED37E00382BF9 /* ZLMyCompletedVC.m */; };
 		D59E808320185A8E0024E5CC /* ZLHomeShipQueryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E808220185A8E0024E5CC /* ZLHomeShipQueryVC.m */; };
 		D59E80862018865F0024E5CC /* ZLLabelAndTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E80852018865F0024E5CC /* ZLLabelAndTextFieldView.m */; };
-		D59E808A20188F4E0024E5CC /* ZLHoomeShipQueryTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E808920188F4E0024E5CC /* ZLHoomeShipQueryTopView.m */; };
+		D59E808A20188F4E0024E5CC /* ZLHomeShipQueryTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E808920188F4E0024E5CC /* ZLHomeShipQueryTopView.m */; };
 		D5A1F3E4200DD35A0087F062 /* ZLMeBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3E3200DD35A0087F062 /* ZLMeBottomView.m */; };
 		D5A1F3E7200DD51B0087F062 /* ZLMeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3E6200DD51B0087F062 /* ZLMeCollectionViewCell.m */; };
 		D5A1F3EB200DD5880087F062 /* UIButton+JKImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3E9200DD5870087F062 /* UIButton+JKImagePosition.m */; };
@@ -166,6 +177,29 @@
 		D566A379200C8BA700D8F877 /* Strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Strings.h; sourceTree = "<group>"; };
 		D566A37A200CA69D00D8F877 /* ZLMeTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMeTopView.h; sourceTree = "<group>"; };
 		D566A37B200CA69D00D8F877 /* ZLMeTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMeTopView.m; sourceTree = "<group>"; };
+		D5887D29201972FE0021C138 /* ZLHomeShipQueryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHomeShipQueryTableViewCell.h; sourceTree = "<group>"; };
+		D5887D2A201972FE0021C138 /* ZLHomeShipQueryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHomeShipQueryTableViewCell.m; sourceTree = "<group>"; };
+		D5887D322019A5D50021C138 /* ACMediaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaModel.h; sourceTree = "<group>"; };
+		D5887D332019A5D50021C138 /* ACMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaManager.h; sourceTree = "<group>"; };
+		D5887D342019A5D50021C138 /* ACMediaFrame.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ACMediaFrame.bundle; sourceTree = "<group>"; };
+		D5887D352019A5D50021C138 /* ACSelectMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSelectMediaView.h; sourceTree = "<group>"; };
+		D5887D372019A5D50021C138 /* UIImageView+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ACMediaExt.h"; sourceTree = "<group>"; };
+		D5887D382019A5D50021C138 /* NSString+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ACMediaExt.h"; sourceTree = "<group>"; };
+		D5887D392019A5D50021C138 /* UIViewController+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACMediaExt.h"; sourceTree = "<group>"; };
+		D5887D3A2019A5D50021C138 /* UIView+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ACMediaExt.m"; sourceTree = "<group>"; };
+		D5887D3B2019A5D50021C138 /* UIImage+ACGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ACGif.m"; sourceTree = "<group>"; };
+		D5887D3C2019A5D50021C138 /* UIImageView+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ACMediaExt.m"; sourceTree = "<group>"; };
+		D5887D3D2019A5D50021C138 /* NSString+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ACMediaExt.m"; sourceTree = "<group>"; };
+		D5887D3E2019A5D50021C138 /* UIViewController+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACMediaExt.m"; sourceTree = "<group>"; };
+		D5887D3F2019A5D50021C138 /* UIImage+ACGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ACGif.h"; sourceTree = "<group>"; };
+		D5887D402019A5D50021C138 /* UIView+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ACMediaExt.h"; sourceTree = "<group>"; };
+		D5887D412019A5D50021C138 /* ACMediaImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaImageCell.m; sourceTree = "<group>"; };
+		D5887D422019A5D50021C138 /* ACMediaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaModel.m; sourceTree = "<group>"; };
+		D5887D432019A5D50021C138 /* ACMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaManager.m; sourceTree = "<group>"; };
+		D5887D442019A5D50021C138 /* ACMediaFrameConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaFrameConst.h; sourceTree = "<group>"; };
+		D5887D452019A5D50021C138 /* ACMediaImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaImageCell.h; sourceTree = "<group>"; };
+		D5887D462019A5D50021C138 /* ACMediaFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaFrame.h; sourceTree = "<group>"; };
+		D5887D472019A5D50021C138 /* ACSelectMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSelectMediaView.m; sourceTree = "<group>"; };
 		D59A4D72200ED30A00382BF9 /* ZLMyTaskVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMyTaskVC.h; sourceTree = "<group>"; };
 		D59A4D73200ED30A00382BF9 /* ZLMyTaskVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMyTaskVC.m; sourceTree = "<group>"; };
 		D59A4D75200ED35C00382BF9 /* ZLMyWaitDealVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMyWaitDealVC.h; sourceTree = "<group>"; };
@@ -176,8 +210,8 @@
 		D59E808220185A8E0024E5CC /* ZLHomeShipQueryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHomeShipQueryVC.m; sourceTree = "<group>"; };
 		D59E80842018865F0024E5CC /* ZLLabelAndTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLLabelAndTextFieldView.h; sourceTree = "<group>"; };
 		D59E80852018865F0024E5CC /* ZLLabelAndTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLLabelAndTextFieldView.m; sourceTree = "<group>"; };
-		D59E808820188F4E0024E5CC /* ZLHoomeShipQueryTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHoomeShipQueryTopView.h; sourceTree = "<group>"; };
-		D59E808920188F4E0024E5CC /* ZLHoomeShipQueryTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHoomeShipQueryTopView.m; sourceTree = "<group>"; };
+		D59E808820188F4E0024E5CC /* ZLHomeShipQueryTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLHomeShipQueryTopView.h; sourceTree = "<group>"; };
+		D59E808920188F4E0024E5CC /* ZLHomeShipQueryTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLHomeShipQueryTopView.m; sourceTree = "<group>"; };
 		D5A1F3E1200DA1550087F062 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		D5A1F3E2200DD35A0087F062 /* ZLMeBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMeBottomView.h; sourceTree = "<group>"; };
 		D5A1F3E3200DD35A0087F062 /* ZLMeBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMeBottomView.m; sourceTree = "<group>"; };
@@ -792,6 +826,87 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		D5887D2C20198CE10021C138 /* ZLFormInputAndImageTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D5F6B1152015DFDD00B9B813 /* ZLFormInputAndImageTableViewCell.h */,
+				D5F6B1162015DFDD00B9B813 /* ZLFormInputAndImageTableViewCell.m */,
+			);
+			path = ZLFormInputAndImageTableViewCell;
+			sourceTree = "<group>";
+		};
+		D5887D2D20198CF20021C138 /* SelwynFormTextViewInputTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D5B364FD201722F900AB9FD9 /* SelwynFormTextViewInputTableViewCell.m */,
+				D5B36501201722F900AB9FD9 /* SelwynFormTextViewInputTableViewCell.h */,
+			);
+			path = SelwynFormTextViewInputTableViewCell;
+			sourceTree = "<group>";
+		};
+		D5887D2E20198D0B0021C138 /* SelwynFormSelectTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D5B364FF201722F900AB9FD9 /* SelwynFormSelectTableViewCell.h */,
+				D5B36507201722F900AB9FD9 /* SelwynFormSelectTableViewCell.m */,
+			);
+			path = SelwynFormSelectTableViewCell;
+			sourceTree = "<group>";
+		};
+		D5887D2F20198D230021C138 /* SelwynFormInputTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D5B36500201722F900AB9FD9 /* SelwynFormInputTableViewCell.h */,
+				D5B36509201722F900AB9FD9 /* SelwynFormInputTableViewCell.m */,
+			);
+			path = SelwynFormInputTableViewCell;
+			sourceTree = "<group>";
+		};
+		D5887D3020198D370021C138 /* SelwynFormBaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D5B364FE201722F900AB9FD9 /* SelwynFormBaseTableViewCell.h */,
+				D5B36508201722F900AB9FD9 /* SelwynFormBaseTableViewCell.m */,
+			);
+			path = SelwynFormBaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		D5887D312019A5D50021C138 /* ACMediaFrame */ = {
+			isa = PBXGroup;
+			children = (
+				D5887D322019A5D50021C138 /* ACMediaModel.h */,
+				D5887D332019A5D50021C138 /* ACMediaManager.h */,
+				D5887D342019A5D50021C138 /* ACMediaFrame.bundle */,
+				D5887D352019A5D50021C138 /* ACSelectMediaView.h */,
+				D5887D362019A5D50021C138 /* Libraries */,
+				D5887D412019A5D50021C138 /* ACMediaImageCell.m */,
+				D5887D422019A5D50021C138 /* ACMediaModel.m */,
+				D5887D432019A5D50021C138 /* ACMediaManager.m */,
+				D5887D442019A5D50021C138 /* ACMediaFrameConst.h */,
+				D5887D452019A5D50021C138 /* ACMediaImageCell.h */,
+				D5887D462019A5D50021C138 /* ACMediaFrame.h */,
+				D5887D472019A5D50021C138 /* ACSelectMediaView.m */,
+			);
+			path = ACMediaFrame;
+			sourceTree = "<group>";
+		};
+		D5887D362019A5D50021C138 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D5887D372019A5D50021C138 /* UIImageView+ACMediaExt.h */,
+				D5887D382019A5D50021C138 /* NSString+ACMediaExt.h */,
+				D5887D392019A5D50021C138 /* UIViewController+ACMediaExt.h */,
+				D5887D3A2019A5D50021C138 /* UIView+ACMediaExt.m */,
+				D5887D3B2019A5D50021C138 /* UIImage+ACGif.m */,
+				D5887D3C2019A5D50021C138 /* UIImageView+ACMediaExt.m */,
+				D5887D3D2019A5D50021C138 /* NSString+ACMediaExt.m */,
+				D5887D3E2019A5D50021C138 /* UIViewController+ACMediaExt.m */,
+				D5887D3F2019A5D50021C138 /* UIImage+ACGif.h */,
+				D5887D402019A5D50021C138 /* UIView+ACMediaExt.h */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		D59A4D6F200ED29000382BF9 /* MyTaskController */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,8 +959,10 @@
 			children = (
 				D5FA52FF200EE50300300811 /* ZLHomeTopView.h */,
 				D5FA5300200EE50300300811 /* ZLHomeTopView.m */,
-				D59E808820188F4E0024E5CC /* ZLHoomeShipQueryTopView.h */,
-				D59E808920188F4E0024E5CC /* ZLHoomeShipQueryTopView.m */,
+				D59E808820188F4E0024E5CC /* ZLHomeShipQueryTopView.h */,
+				D59E808920188F4E0024E5CC /* ZLHomeShipQueryTopView.m */,
+				D5887D29201972FE0021C138 /* ZLHomeShipQueryTableViewCell.h */,
+				D5887D2A201972FE0021C138 /* ZLHomeShipQueryTableViewCell.m */,
 			);
 			path = ZLHomeTopView;
 			sourceTree = "<group>";
@@ -871,17 +988,12 @@
 		D5B364FC201722F900AB9FD9 /* SelwynFormCell */ = {
 			isa = PBXGroup;
 			children = (
-				D5F6B1152015DFDD00B9B813 /* ZLFormInputAndImageTableViewCell.h */,
-				D5F6B1162015DFDD00B9B813 /* ZLFormInputAndImageTableViewCell.m */,
-				D5B364FD201722F900AB9FD9 /* SelwynFormTextViewInputTableViewCell.m */,
-				D5B364FE201722F900AB9FD9 /* SelwynFormBaseTableViewCell.h */,
-				D5B364FF201722F900AB9FD9 /* SelwynFormSelectTableViewCell.h */,
-				D5B36500201722F900AB9FD9 /* SelwynFormInputTableViewCell.h */,
-				D5B36501201722F900AB9FD9 /* SelwynFormTextViewInputTableViewCell.h */,
+				D5887D3020198D370021C138 /* SelwynFormBaseTableViewCell */,
+				D5887D2F20198D230021C138 /* SelwynFormInputTableViewCell */,
+				D5887D2E20198D0B0021C138 /* SelwynFormSelectTableViewCell */,
+				D5887D2D20198CF20021C138 /* SelwynFormTextViewInputTableViewCell */,
+				D5887D2C20198CE10021C138 /* ZLFormInputAndImageTableViewCell */,
 				D5B36502201722F900AB9FD9 /* SelwynFormAttachmentTableViewCell */,
-				D5B36507201722F900AB9FD9 /* SelwynFormSelectTableViewCell.m */,
-				D5B36508201722F900AB9FD9 /* SelwynFormBaseTableViewCell.m */,
-				D5B36509201722F900AB9FD9 /* SelwynFormInputTableViewCell.m */,
 			);
 			path = SelwynFormCell;
 			sourceTree = "<group>";
@@ -1092,6 +1204,7 @@
 		D5D914FE2007188800FD94E9 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				D5887D312019A5D50021C138 /* ACMediaFrame */,
 				D5F6B0EC2015D0FC00B9B813 /* Form */,
 				D5F6B0E2201571B500B9B813 /* YUFoldingTableView */,
 				D55276C82010A77D00D3D025 /* XDMultTableView */,
@@ -1202,6 +1315,7 @@
 				D5D914E42007125100FD94E9 /* LaunchScreen.storyboard in Resources */,
 				D5D914E12007125100FD94E9 /* Assets.xcassets in Resources */,
 				D5D914DF2007125100FD94E9 /* Main.storyboard in Resources */,
+				D5887D482019A5D50021C138 /* ACMediaFrame.bundle in Resources */,
 				D5F6B0EA201571B500B9B813 /* YUFolding_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1322,6 +1436,7 @@
 				D59A4D77200ED35C00382BF9 /* ZLMyWaitDealVC.m in Sources */,
 				D5B36517201722F900AB9FD9 /* SelwynFormAttachmentTableViewCell.m in Sources */,
 				D5A1F3EE200DE69A0087F062 /* ZLMeCollectionModel.m in Sources */,
+				D5887D4B2019A5D50021C138 /* UIImageView+ACMediaExt.m in Sources */,
 				D566A35B200C3CD100D8F877 /* UIImage+RoundedCorner.m in Sources */,
 				D5FA530A200EEB1400300811 /* ZLBaseCollectionModel.m in Sources */,
 				D566A36F200C8A3B00D8F877 /* ZLLoginTopView.m in Sources */,
@@ -1339,10 +1454,14 @@
 				D52966132008A646002E3241 /* BaseViewController.m in Sources */,
 				D566A369200C899A00D8F877 /* ZLLoginViewController.m in Sources */,
 				D5FA5301200EE50300300811 /* ZLHomeTopView.m in Sources */,
+				D5887D4E2019A5D50021C138 /* ACMediaImageCell.m in Sources */,
 				D5FA530D200EEB7B00300811 /* ZLHomeCenterCollectionModel.m in Sources */,
+				D5887D512019A5D50021C138 /* ACSelectMediaView.m in Sources */,
 				D5A1F3FE200DFE720087F062 /* ZLBaseNavgationViewController.m in Sources */,
 				D52965FF200860E5002E3241 /* ZLHomeVC.m in Sources */,
 				D55276BD20106D6900D3D025 /* ZLShipBaseDetailView.m in Sources */,
+				D5887D502019A5D50021C138 /* ACMediaManager.m in Sources */,
+				D5887D4F2019A5D50021C138 /* ACMediaModel.m in Sources */,
 				D59E808320185A8E0024E5CC /* ZLHomeShipQueryVC.m in Sources */,
 				D5B3651D201722F900AB9FD9 /* SelwynFormItem.m in Sources */,
 				D566A355200C3CD100D8F877 /* UILabel+ZLLeftAndRight.m in Sources */,
@@ -1350,8 +1469,10 @@
 				D5F6B0E8201571B500B9B813 /* YUFoldingTableView.m in Sources */,
 				D52966182008A75C002E3241 /* Reachability.m in Sources */,
 				D5F1146A2011C94F008990C4 /* ZLInfoRecordTableViewCell.m in Sources */,
+				D5887D4A2019A5D50021C138 /* UIImage+ACGif.m in Sources */,
 				D5FA5316200EF22F00300811 /* ZLHomeBottomCollectionViewCell.m in Sources */,
 				D5FA531C200F01AB00300811 /* ZLImportantTodayVC.m in Sources */,
+				D5887D492019A5D50021C138 /* UIView+ACMediaExt.m in Sources */,
 				D5D914E72007125100FD94E9 /* main.m in Sources */,
 				D59A4D7A200ED37E00382BF9 /* ZLMyCompletedVC.m in Sources */,
 				D5B36516201722F900AB9FD9 /* SelwynFormTextViewInputTableViewCell.m in Sources */,
@@ -1362,10 +1483,12 @@
 				D5A1F3F2200DF1B20087F062 /* UIAlertView+Block.m in Sources */,
 				D5B3651B201722F900AB9FD9 /* SelwynFormInputTableViewCell.m in Sources */,
 				D5296602200860F9002E3241 /* ZLMeVC.m in Sources */,
+				D5887D4C2019A5D50021C138 /* NSString+ACMediaExt.m in Sources */,
 				D5A1F3E4200DD35A0087F062 /* ZLMeBottomView.m in Sources */,
 				D55276C32010909300D3D025 /* ZLShipBaseTopInfoView.m in Sources */,
 				D5B3651E201722F900AB9FD9 /* SelwynFormHandle.m in Sources */,
-				D59E808A20188F4E0024E5CC /* ZLHoomeShipQueryTopView.m in Sources */,
+				D5887D2B201972FE0021C138 /* ZLHomeShipQueryTableViewCell.m in Sources */,
+				D59E808A20188F4E0024E5CC /* ZLHomeShipQueryTopView.m in Sources */,
 				D5F6B0E9201571B500B9B813 /* YUFoldingSectionHeader.m in Sources */,
 				D529660E20086304002E3241 /* ZLMainTabarVC.m in Sources */,
 				D566A354200C3CD100D8F877 /* UIImage+Color.m in Sources */,
@@ -1387,6 +1510,7 @@
 				D52965FC200860C3002E3241 /* ZLImportantShipVC.m in Sources */,
 				D5B3651A201722F900AB9FD9 /* SelwynFormBaseTableViewCell.m in Sources */,
 				D55276BA20106D1E00D3D025 /* ZLShipDetailVC.m in Sources */,
+				D5887D4D2019A5D50021C138 /* UIViewController+ACMediaExt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

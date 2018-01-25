@@ -115,21 +115,21 @@
 - (UIView *)oldLine{
     if (!_oldLine) {
         _oldLine = [[UIView alloc]init];
-        _oldLine.backgroundColor = [UIColor lightGrayColor];
+        _oldLine.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _oldLine;
 }
 - (UIView *)newsLine{
     if (!_newsLine) {
         _newsLine = [[UIView alloc]init];
-        _newsLine.backgroundColor = [UIColor lightGrayColor];
+        _newsLine.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _newsLine;
 }
 - (UIView *)sureLine{
     if (!_sureLine) {
         _sureLine = [[UIView alloc]init];
-        _sureLine.backgroundColor = [UIColor lightGrayColor];
+        _sureLine.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _sureLine;
 }

@@ -10,5 +10,5 @@
 #define Colors_h
 
 #define CNAVGATIONBAR_COLOR 0x1e82d2
-
+#define CVIEW_GRAY_COLOR 0xf2f0f3
 #endif /* Colors_h */

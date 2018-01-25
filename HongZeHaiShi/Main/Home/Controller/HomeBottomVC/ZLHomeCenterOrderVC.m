@@ -11,6 +11,7 @@
 #import "SelwynFormHandle.h"
 #import "SelwynFormSectionItem.h"
 #import "ZLHomeShipQueryVC.h"
+#import <BRPickerView/BRPickerView.h>
 @interface ZLHomeCenterOrderVC ()
 
 @end
@@ -20,9 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSMutableArray *datas = [NSMutableArray array];
-//    SelwynFormItem *name = SelwynItemMake(@"船舶名称:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
-//
-//     [datas addObject:name];
+    
+    __weak typeof(self) weakSelf = self;
     
     SelwynFormItem *name = SelwynItemMake(@"船舶名称:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
     name.placeholder = @"选填";
@@ -32,6 +32,11 @@
         ZLHomeShipQueryVC *vc = [[ZLHomeShipQueryVC alloc]init];
         
         [self.navigationController pushViewController:vc animated:YES];
+        
+        vc.shipBlock = ^(NSString *name) {
+            item.formDetail = name;
+            [weakSelf.formTableView reloadData];
+        };
         
         NSLog(@"点击了name");
         
@@ -60,18 +65,24 @@
     time.selectHandle = ^(SelwynFormItem *item) {
         
         NSLog(@"点击了time");
-        
+        [BRDatePickerView showDatePickerWithTitle:@"请选择日期" dateType:(UIDatePickerModeDateAndTime) defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:NO resultBlock:^(NSString *selectValue) {
+            item.formDetail = selectValue;
+            [weakSelf.formTableView reloadData];
+            NSLog(@"%@", selectValue);
+            
+        }];
     };
     
-//    SelwynFormItem *xxx = SelwynItemMake(@"任务标题:", @"", SelwynFormCellTypeInputAndImage, UIKeyboardTypeDefault, YES, NO);
-//    xxx.placeholder = @"请输入标题";
-//    xxx.imageName = @"day_rivers_total";
-//    [datas addObject:xxx];
     
     SelwynFormItem *content = SelwynDetailItemMake(@"任务内容", @"", SelwynFormCellTypeTextViewInput);
     content.editable = YES;
     content.placeholder = @"请填写内容";
     [datas addObject:content];
+    
+    SelwynFormItem *attachment = SelwynItemMake(@"附件", @"", SelwynFormCellTypeAttachment, UIKeyboardTypeDefault, YES, NO);
+//    attachment.defaultCellHeight = 200;
+    [datas addObject:attachment];
+    
     
     SelwynFormSectionItem *sectionItem = [[SelwynFormSectionItem alloc]init];
     sectionItem.cellItems = datas;
