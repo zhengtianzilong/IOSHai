@@ -51,6 +51,12 @@
 		D5887D4F2019A5D50021C138 /* ACMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D422019A5D50021C138 /* ACMediaModel.m */; };
 		D5887D502019A5D50021C138 /* ACMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D432019A5D50021C138 /* ACMediaManager.m */; };
 		D5887D512019A5D50021C138 /* ACSelectMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5887D472019A5D50021C138 /* ACSelectMediaView.m */; };
+		D5901F28201AB87C00402138 /* ZLRecordAudioVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5901F27201AB87C00402138 /* ZLRecordAudioVC.m */; };
+		D5901F2B201AC09600402138 /* ZLAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5901F2A201AC09600402138 /* ZLAudioManager.m */; };
+		D5901F2E201AC65400402138 /* ZLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D5901F2D201AC65400402138 /* ZLUtility.m */; };
+		D5901F33201AF75D00402138 /* NSString+ZLSizeOfString.m in Sources */ = {isa = PBXBuildFile; fileRef = D5901F32201AF75D00402138 /* NSString+ZLSizeOfString.m */; };
+		D5901F35201AFB4600402138 /* Audio.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5901F34201AFB4600402138 /* Audio.xcassets */; };
+		D5901F38201B059B00402138 /* ZLFormItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5901F37201B059B00402138 /* ZLFormItemModel.m */; };
 		D59A4D74200ED30A00382BF9 /* ZLMyTaskVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D73200ED30A00382BF9 /* ZLMyTaskVC.m */; };
 		D59A4D77200ED35C00382BF9 /* ZLMyWaitDealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D76200ED35C00382BF9 /* ZLMyWaitDealVC.m */; };
 		D59A4D7A200ED37E00382BF9 /* ZLMyCompletedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4D79200ED37E00382BF9 /* ZLMyCompletedVC.m */; };
@@ -200,6 +206,17 @@
 		D5887D452019A5D50021C138 /* ACMediaImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaImageCell.h; sourceTree = "<group>"; };
 		D5887D462019A5D50021C138 /* ACMediaFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaFrame.h; sourceTree = "<group>"; };
 		D5887D472019A5D50021C138 /* ACSelectMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSelectMediaView.m; sourceTree = "<group>"; };
+		D5901F26201AB87C00402138 /* ZLRecordAudioVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLRecordAudioVC.h; sourceTree = "<group>"; };
+		D5901F27201AB87C00402138 /* ZLRecordAudioVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLRecordAudioVC.m; sourceTree = "<group>"; };
+		D5901F29201AC09600402138 /* ZLAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLAudioManager.h; sourceTree = "<group>"; };
+		D5901F2A201AC09600402138 /* ZLAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLAudioManager.m; sourceTree = "<group>"; };
+		D5901F2C201AC65400402138 /* ZLUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLUtility.h; sourceTree = "<group>"; };
+		D5901F2D201AC65400402138 /* ZLUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLUtility.m; sourceTree = "<group>"; };
+		D5901F31201AF75D00402138 /* NSString+ZLSizeOfString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZLSizeOfString.h"; sourceTree = "<group>"; };
+		D5901F32201AF75D00402138 /* NSString+ZLSizeOfString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZLSizeOfString.m"; sourceTree = "<group>"; };
+		D5901F34201AFB4600402138 /* Audio.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Audio.xcassets; sourceTree = "<group>"; };
+		D5901F36201B059B00402138 /* ZLFormItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLFormItemModel.h; sourceTree = "<group>"; };
+		D5901F37201B059B00402138 /* ZLFormItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLFormItemModel.m; sourceTree = "<group>"; };
 		D59A4D72200ED30A00382BF9 /* ZLMyTaskVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMyTaskVC.h; sourceTree = "<group>"; };
 		D59A4D73200ED30A00382BF9 /* ZLMyTaskVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLMyTaskVC.m; sourceTree = "<group>"; };
 		D59A4D75200ED35C00382BF9 /* ZLMyWaitDealVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLMyWaitDealVC.h; sourceTree = "<group>"; };
@@ -588,6 +605,12 @@
 			children = (
 				D529660C20086304002E3241 /* ZLMainTabarVC.h */,
 				D529660D20086304002E3241 /* ZLMainTabarVC.m */,
+				D5901F26201AB87C00402138 /* ZLRecordAudioVC.h */,
+				D5901F27201AB87C00402138 /* ZLRecordAudioVC.m */,
+				D5901F29201AC09600402138 /* ZLAudioManager.h */,
+				D5901F2A201AC09600402138 /* ZLAudioManager.m */,
+				D5901F2C201AC65400402138 /* ZLUtility.h */,
+				D5901F2D201AC65400402138 /* ZLUtility.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -671,6 +694,7 @@
 		D566A336200C3CD100D8F877 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D5901F2F201AF70700402138 /* Foundation */,
 				D566A337200C3CD100D8F877 /* UIKit */,
 				D566A349200C3CD100D8F877 /* Other */,
 			);
@@ -907,6 +931,23 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
+		D5901F2F201AF70700402138 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				D5901F30201AF72500402138 /* NSString */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		D5901F30201AF72500402138 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				D5901F31201AF75D00402138 /* NSString+ZLSizeOfString.h */,
+				D5901F32201AF75D00402138 /* NSString+ZLSizeOfString.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
 		D59A4D6F200ED29000382BF9 /* MyTaskController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1005,6 +1046,8 @@
 				D5B36504201722F900AB9FD9 /* SelwynAttaCollectionViewCell.h */,
 				D5B36505201722F900AB9FD9 /* SelwynFormAttachmentTableViewCell.m */,
 				D5B36506201722F900AB9FD9 /* SelwynAttaCollectionViewCell.m */,
+				D5901F36201B059B00402138 /* ZLFormItemModel.h */,
+				D5901F37201B059B00402138 /* ZLFormItemModel.m */,
 			);
 			path = SelwynFormAttachmentTableViewCell;
 			sourceTree = "<group>";
@@ -1088,6 +1131,7 @@
 		D5D914F02007188700FD94E9 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D5901F34201AFB4600402138 /* Audio.xcassets */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1312,6 +1356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55276CD2010A77D00D3D025 /* down_blue@2x.png in Resources */,
+				D5901F35201AFB4600402138 /* Audio.xcassets in Resources */,
 				D5D914E42007125100FD94E9 /* LaunchScreen.storyboard in Resources */,
 				D5D914E12007125100FD94E9 /* Assets.xcassets in Resources */,
 				D5D914DF2007125100FD94E9 /* Main.storyboard in Resources */,
@@ -1445,7 +1490,9 @@
 				D5A1F3E7200DD51B0087F062 /* ZLMeCollectionViewCell.m in Sources */,
 				D566A35D200C3CD100D8F877 /* JRSwizzle.m in Sources */,
 				D5FA532E200F466700300811 /* ZLSelectInfoView.m in Sources */,
+				D5901F38201B059B00402138 /* ZLFormItemModel.m in Sources */,
 				D5F6B1172015DFDD00B9B813 /* ZLFormInputAndImageTableViewCell.m in Sources */,
+				D5901F2E201AC65400402138 /* ZLUtility.m in Sources */,
 				D566A35A200C3CD100D8F877 /* UIView+RoundedCorner.m in Sources */,
 				D5B363AD2017163300AB9FD9 /* SelwynFormViewController.m in Sources */,
 				D55276CC2010A77D00D3D025 /* XDMultTableView.m in Sources */,
@@ -1471,12 +1518,14 @@
 				D5F1146A2011C94F008990C4 /* ZLInfoRecordTableViewCell.m in Sources */,
 				D5887D4A2019A5D50021C138 /* UIImage+ACGif.m in Sources */,
 				D5FA5316200EF22F00300811 /* ZLHomeBottomCollectionViewCell.m in Sources */,
+				D5901F2B201AC09600402138 /* ZLAudioManager.m in Sources */,
 				D5FA531C200F01AB00300811 /* ZLImportantTodayVC.m in Sources */,
 				D5887D492019A5D50021C138 /* UIView+ACMediaExt.m in Sources */,
 				D5D914E72007125100FD94E9 /* main.m in Sources */,
 				D59A4D7A200ED37E00382BF9 /* ZLMyCompletedVC.m in Sources */,
 				D5B36516201722F900AB9FD9 /* SelwynFormTextViewInputTableViewCell.m in Sources */,
 				D55276C020106EB800D3D025 /* ZLShipInfoView.m in Sources */,
+				D5901F28201AB87C00402138 /* ZLRecordAudioVC.m in Sources */,
 				D5A1F3EB200DD5880087F062 /* UIButton+JKImagePosition.m in Sources */,
 				D5B36520201722F900AB9FD9 /* SelwynFormBaseViewController.m in Sources */,
 				D5B36518201722F900AB9FD9 /* SelwynAttaCollectionViewCell.m in Sources */,
@@ -1506,6 +1555,7 @@
 				D52966052008610E002E3241 /* ZLTodayVC.m in Sources */,
 				D566A37C200CA69D00D8F877 /* ZLMeTopView.m in Sources */,
 				D59E80862018865F0024E5CC /* ZLLabelAndTextFieldView.m in Sources */,
+				D5901F33201AF75D00402138 /* NSString+ZLSizeOfString.m in Sources */,
 				D5FA5307200EEA4100300811 /* ZLHomeCenterCollectionViewCell.m in Sources */,
 				D52965FC200860C3002E3241 /* ZLImportantShipVC.m in Sources */,
 				D5B3651A201722F900AB9FD9 /* SelwynFormBaseTableViewCell.m in Sources */,
@@ -1648,6 +1698,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X7285XJAR2;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HongZeHaiShi/Expand/Macros/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HongZeHaiShi/Resource/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -1666,6 +1717,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X7285XJAR2;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HongZeHaiShi/Expand/Macros/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HongZeHaiShi/Resource/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;

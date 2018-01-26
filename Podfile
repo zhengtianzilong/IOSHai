@@ -21,6 +21,7 @@ pod 'ACAlertController'
 pod 'SVProgressHUD'
 pod 'NinaPagerView'
 pod 'BRPickerView'
+pod 'mp3lame-for-ios'
 target 'HongZeHaiShi' 
 
 end

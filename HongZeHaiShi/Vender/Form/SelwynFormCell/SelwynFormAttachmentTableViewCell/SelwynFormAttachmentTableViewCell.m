@@ -15,7 +15,10 @@
 #import <AVFoundation/AVCaptureDevice.h>
 #import <AVFoundation/AVMediaFormat.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "ACSelectMediaView.h"
+//#import "ACSelectMediaView.h"
+#import "ZLRecordAudioVC.h"
+#import "ZLUtility.h"
+#import "ZLFormItemModel.h"
 #define IMAGE_MAX_SIZE_5k 5120*2880
 #define AttaWidth 81
 #define RowCount 4
@@ -148,7 +151,8 @@
 //        cell.deleteButton.hidden = YES;
     }else{
     cell.editingEnable = _formItem.editable;
-    cell.image = _formItem.images[indexPath.item];
+    ZLFormItemModel *model = _formItem.images[indexPath.item];
+    cell.image = model.image;
     cell.deleteHandle = ^{
         
         [self.images removeObjectAtIndex:indexPath.item];
@@ -176,7 +180,7 @@
     
     if (indexPath.row == _formItem.images.count){
         
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取",@"录音" , nil];
         
         actionSheet.tag = 555;
         [actionSheet showInView:self.superview];
@@ -188,56 +192,77 @@
     
     for (int i = 0; i < self.images.count; i++) {
         
-        id object = self.images[i];
+//        id object = self.images[i];
+//
+//        MWPhoto *photo;
+//
+//        if ([object isKindOfClass:[UIImage class]]) {
+//
+//            CGFloat imageSize = ((UIImage*)object).size.width * ((UIImage*)object).size.height;
+//            if (imageSize > IMAGE_MAX_SIZE_5k) {
+//                photo = [MWPhoto photoWithImage:[self scaleImage:object toScale:(IMAGE_MAX_SIZE_5k)/imageSize]];
+//            } else {
+//                photo = [MWPhoto photoWithImage:object];
+//            }
+//        }
+//        else if ([object isKindOfClass:[NSURL class]])
+//        {
+//            photo = [MWPhoto photoWithURL:object];
+//        }
+//        else if ([object isKindOfClass:[NSString class]])
+//        {
+//            photo = [MWPhoto photoWithURL:[NSURL URLWithString:[object stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+//        }
+        
+        ZLFormItemModel *model = self.images[i];
         
         MWPhoto *photo;
         
-        if ([object isKindOfClass:[UIImage class]]) {
+        if (!model.isAudio) {
             
-            CGFloat imageSize = ((UIImage*)object).size.width * ((UIImage*)object).size.height;
+            // 不是音频文件
+            CGFloat imageSize = model.image.size.width *  model.image.size.height;
             if (imageSize > IMAGE_MAX_SIZE_5k) {
-                photo = [MWPhoto photoWithImage:[self scaleImage:object toScale:(IMAGE_MAX_SIZE_5k)/imageSize]];
+                photo = [MWPhoto photoWithImage:[self scaleImage:model.image toScale:(IMAGE_MAX_SIZE_5k)/imageSize]];
             } else {
-                photo = [MWPhoto photoWithImage:object];
+                photo = [MWPhoto photoWithImage:model.image];
             }
-        }
-        else if ([object isKindOfClass:[NSURL class]])
-        {
-            photo = [MWPhoto photoWithURL:object];
-        }
-        else if ([object isKindOfClass:[NSString class]])
-        {
-            photo = [MWPhoto photoWithURL:[NSURL URLWithString:[object stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-        }
-        
+            
+        }else{
+            // 是音频文件,就直接播放
+            ZLLog(@"%@", model);
+        } 
         if (photo) {
             [self.photos addObject:photo];
         }
     }
-    
-    [self.photoBrowser setCurrentPhotoIndex:indexPath.item];
-    
-    [[self superViewController:self] presentViewController:self.photoNavigationController animated:YES completion:nil];
-    }
-}
-
-- (void)addAction{
-    
-    if (self.images.count >= _formItem.maxImageCount) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"最多选择%ld张附件",(long)_formItem.maxImageCount] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        
-        [alertView show];
-        return;
+        ZLFormItemModel *model = self.images[indexPath.item];
+        if (!model.isAudio) {
+            [self.photoBrowser setCurrentPhotoIndex:indexPath.item];
+            
+            [[self superViewController:self] presentViewController:self.photoNavigationController animated:YES completion:nil];
+        }
     }
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
-    
-    actionSheet.tag = 555;
-    [actionSheet showInView:self.superview];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clicke00dButtonAtIndex:(NSInteger)buttonIndex
+//- (void)addAction{
+//
+//    if (self.images.count >= _formItem.maxImageCount) {
+//
+//        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"最多选择%ld张附件",(long)_formItem.maxImageCount] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//
+//        [alertView show];
+//        return;
+//    }
+//
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
+//
+//    actionSheet.tag = 555;
+//    [actionSheet showInView:self.superview];
+//}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (actionSheet.tag == 555) {
         
@@ -250,6 +275,11 @@
             case 1:
             {
                 [self localPhoto];
+            }
+                break;
+            case 2:
+            {
+                [self startRecordAudio];
             }
                 break;
             default:
@@ -287,6 +317,27 @@
     [[self superViewController:self] presentViewController:imagePickerVC animated:YES completion:nil];
     
     [self AuthorizationPhotoAlbum];
+}
+
+- (void)startRecordAudio{
+    ZLRecordAudioVC *audioVC = [[ZLRecordAudioVC alloc]init];
+   
+    audioVC.mp3FileNameBlock = ^(NSString *mp3FileName) {
+      
+        ZLFormItemModel *model = [[ZLFormItemModel alloc]init];
+        model.image = [UIImage imageNamed:@"media_video_small"];
+        model.isVideo = NO;
+        model.isAudio = YES;
+        model.imageUrlString = mp3FileName;
+        [self.images addObject:model];
+        
+        NSLog(@"%@", mp3FileName);
+        [self refreshData];
+    };
+    
+    [[self superViewController:self] presentViewController:audioVC animated:YES completion:nil];
+    
+    [self AuthorizationAudio];
 }
 
 
@@ -370,8 +421,11 @@
 {
     for (int i = 0; i < photos.count; i++) {
         UIImage *selectImage = photos[i];
-        
-        [self.images addObject:selectImage];
+        ZLFormItemModel *model = [[ZLFormItemModel alloc]init];
+        model.image = selectImage;
+        model.isVideo = NO;
+        [self.images addObject:model];
+//        [self.images addObject:selectImage];
     }
     
     [self refreshData];
@@ -384,7 +438,10 @@
     
     UIImage *selectImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     
-    [self.images addObject:selectImage];
+    ZLFormItemModel *model = [[ZLFormItemModel alloc]init];
+    model.image = selectImage;
+    model.isVideo = NO;
+    [self.images addObject:model];
     
     [self refreshData];
 }
@@ -488,15 +545,18 @@
     }
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+//音频权限
+- (void)AuthorizationAudio{
+    
+    if (![ZLUtility isAudioRecordPermit]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"请在设置>隐私>麦克风中开启权限"
+                                                       delegate:self
+                                              cancelButtonTitle:@"知道了"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
 }
 
 @end

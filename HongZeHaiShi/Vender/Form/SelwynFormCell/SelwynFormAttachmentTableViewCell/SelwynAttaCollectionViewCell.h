@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^AttachmentDeleteHandle)();
+typedef void(^AttachmentDeleteHandle)(void);
 
 @interface SelwynAttaCollectionViewCell : UICollectionViewCell
 
