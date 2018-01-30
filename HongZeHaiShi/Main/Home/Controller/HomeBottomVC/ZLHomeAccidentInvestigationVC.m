@@ -1,22 +1,22 @@
 //
-//  ZLHomeCenterOrderVC.m
+//  ZLHomeAccidentInvestigationVC.m
 //  HongZeHaiShi
 //
-//  Created by 蔡紫龙 on 2018/1/22.
+//  Created by 蔡紫龙 on 2018/1/30.
 //  Copyright © 2018年 xgzl. All rights reserved.
 //
 
-#import "ZLHomeCenterOrderVC.h"
+#import "ZLHomeAccidentInvestigationVC.h"
 #import "SelwynFormItem.h"
 #import "SelwynFormHandle.h"
 #import "SelwynFormSectionItem.h"
 #import "ZLHomeShipQueryVC.h"
 #import <BRPickerView/BRPickerView.h>
-@interface ZLHomeCenterOrderVC ()
+@interface ZLHomeAccidentInvestigationVC ()
 
 @end
 
-@implementation ZLHomeCenterOrderVC
+@implementation ZLHomeAccidentInvestigationVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,13 +48,27 @@
     [datas addObject:taskTitle];
     
     SelwynFormItem *people = SelwynItemMake(@"接收人员:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
-     [datas addObject:people];
+    [datas addObject:people];
     
     people.selectHandle = ^(SelwynFormItem *item) {
         
         NSLog(@"点击了people");
         
     };
+    
+
+    
+    SelwynFormItem *riverArea = SelwynItemMake(@"水域:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+    riverArea.placeholder = @"选填";
+    [datas addObject:riverArea];
+    
+    SelwynFormItem *type = SelwynItemMake(@"类型:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+    type.placeholder = @"选填";
+    [datas addObject:type];
+    
+    SelwynFormItem *phone = SelwynItemMake(@"电话:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+    phone.placeholder = @"选填";
+    [datas addObject:phone];
     
     SelwynFormItem *time = SelwynItemMake(@"下发时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
     
@@ -80,7 +94,7 @@
     [datas addObject:content];
     
     SelwynFormItem *attachment = SelwynItemMake(@"附件", @"", SelwynFormCellTypeAttachment, UIKeyboardTypeDefault, YES, NO);
-//    attachment.defaultCellHeight = 200;
+    //    attachment.defaultCellHeight = 200;
     [datas addObject:attachment];
     
     
@@ -96,8 +110,6 @@
     
     [self.mutableArray addObject:sectionItem];
     [self.mutableArray addObject:sectionItem1];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,5 +117,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

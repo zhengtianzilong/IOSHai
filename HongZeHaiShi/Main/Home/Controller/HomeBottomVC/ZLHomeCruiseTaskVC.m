@@ -1,22 +1,22 @@
 //
-//  ZLHomeCenterOrderVC.m
+//  ZLHomeCruiseTaskVC.m
 //  HongZeHaiShi
 //
-//  Created by 蔡紫龙 on 2018/1/22.
+//  Created by 蔡紫龙 on 2018/1/30.
 //  Copyright © 2018年 xgzl. All rights reserved.
 //
 
-#import "ZLHomeCenterOrderVC.h"
+#import "ZLHomeCruiseTaskVC.h"
 #import "SelwynFormItem.h"
 #import "SelwynFormHandle.h"
 #import "SelwynFormSectionItem.h"
 #import "ZLHomeShipQueryVC.h"
 #import <BRPickerView/BRPickerView.h>
-@interface ZLHomeCenterOrderVC ()
+@interface ZLHomeCruiseTaskVC ()
 
 @end
 
-@implementation ZLHomeCenterOrderVC
+@implementation ZLHomeCruiseTaskVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,13 +48,56 @@
     [datas addObject:taskTitle];
     
     SelwynFormItem *people = SelwynItemMake(@"接收人员:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
-     [datas addObject:people];
+    [datas addObject:people];
     
     people.selectHandle = ^(SelwynFormItem *item) {
         
         NSLog(@"点击了people");
         
     };
+    
+    SelwynFormItem *startTime = SelwynItemMake(@"开始时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
+    
+    startTime.imageName =  @"day_rivers_total";
+    
+    [datas addObject:startTime];
+    
+    startTime.selectHandle = ^(SelwynFormItem *item) {
+        
+        NSLog(@"点击了time");
+        [BRDatePickerView showDatePickerWithTitle:@"选填" dateType:(UIDatePickerModeDateAndTime) defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:NO resultBlock:^(NSString *selectValue) {
+            item.formDetail = selectValue;
+            [weakSelf.formTableView reloadData];
+            NSLog(@"%@", selectValue);
+            
+        }];
+    };
+    
+    SelwynFormItem *endTime = SelwynItemMake(@"结束时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
+    
+    endTime.imageName =  @"day_rivers_total";
+    
+    [datas addObject:endTime];
+    
+    endTime.selectHandle = ^(SelwynFormItem *item) {
+        
+        NSLog(@"点击了time");
+        [BRDatePickerView showDatePickerWithTitle:@"选填" dateType:(UIDatePickerModeDateAndTime) defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:NO resultBlock:^(NSString *selectValue) {
+            item.formDetail = selectValue;
+            [weakSelf.formTableView reloadData];
+            NSLog(@"%@", selectValue);
+            
+        }];
+    };
+    
+    SelwynFormItem *riverArea = SelwynItemMake(@"水域:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+    riverArea.placeholder = @"选填";
+    [datas addObject:riverArea];
+    
+    SelwynFormItem *mileage = SelwynItemMake(@"里程:", @"", SelwynFormCellTypeInput, UIKeyboardTypeNumberPad, YES, NO);
+    mileage.placeholder = @"选填";
+    [datas addObject:mileage];
+    
     
     SelwynFormItem *time = SelwynItemMake(@"下发时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
     
@@ -80,7 +123,7 @@
     [datas addObject:content];
     
     SelwynFormItem *attachment = SelwynItemMake(@"附件", @"", SelwynFormCellTypeAttachment, UIKeyboardTypeDefault, YES, NO);
-//    attachment.defaultCellHeight = 200;
+    //    attachment.defaultCellHeight = 200;
     [datas addObject:attachment];
     
     
@@ -96,14 +139,13 @@
     
     [self.mutableArray addObject:sectionItem];
     [self.mutableArray addObject:sectionItem1];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

@@ -1,22 +1,22 @@
 //
-//  ZLHomeCenterOrderVC.m
+//  ZLHomeSOSTaskVC.m
 //  HongZeHaiShi
 //
-//  Created by 蔡紫龙 on 2018/1/22.
+//  Created by 蔡紫龙 on 2018/1/30.
 //  Copyright © 2018年 xgzl. All rights reserved.
 //
 
-#import "ZLHomeCenterOrderVC.h"
+#import "ZLHomeSOSTaskVC.h"
 #import "SelwynFormItem.h"
 #import "SelwynFormHandle.h"
 #import "SelwynFormSectionItem.h"
 #import "ZLHomeShipQueryVC.h"
 #import <BRPickerView/BRPickerView.h>
-@interface ZLHomeCenterOrderVC ()
+@interface ZLHomeSOSTaskVC ()
 
 @end
 
-@implementation ZLHomeCenterOrderVC
+@implementation ZLHomeSOSTaskVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +48,7 @@
     [datas addObject:taskTitle];
     
     SelwynFormItem *people = SelwynItemMake(@"接收人员:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
-     [datas addObject:people];
+    [datas addObject:people];
     
     people.selectHandle = ^(SelwynFormItem *item) {
         
@@ -56,7 +56,7 @@
         
     };
     
-    SelwynFormItem *time = SelwynItemMake(@"下发时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
+    SelwynFormItem *time = SelwynItemMake(@"时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
     
     time.imageName =  @"day_rivers_total";
     
@@ -74,13 +74,40 @@
     };
     
     
+    
+    SelwynFormItem *riverArea = SelwynItemMake(@"水域:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+    riverArea.placeholder = @"选填";
+    [datas addObject:riverArea];
+    
+    SelwynFormItem *phone = SelwynItemMake(@"电话:", @"", SelwynFormCellTypeInput, UIKeyboardTypeDefault, YES, NO);
+    phone.placeholder = @"选填";
+    [datas addObject:phone];
+    
+    SelwynFormItem *downTime = SelwynItemMake(@"下发时间:", @"", SelwynFormCellTypeSelect, UIKeyboardTypeDefault, NO, NO);
+    
+    downTime.imageName =  @"day_rivers_total";
+    
+    [datas addObject:downTime];
+    
+    downTime.selectHandle = ^(SelwynFormItem *item) {
+        
+        NSLog(@"点击了time");
+        [BRDatePickerView showDatePickerWithTitle:@"请选择日期" dateType:(UIDatePickerModeDateAndTime) defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:NO resultBlock:^(NSString *selectValue) {
+            item.formDetail = selectValue;
+            [weakSelf.formTableView reloadData];
+            NSLog(@"%@", selectValue);
+            
+        }];
+    };
+    
+    
     SelwynFormItem *content = SelwynDetailItemMake(@"任务内容", @"", SelwynFormCellTypeTextViewInput);
     content.editable = YES;
     content.placeholder = @"请填写内容";
     [datas addObject:content];
     
     SelwynFormItem *attachment = SelwynItemMake(@"附件", @"", SelwynFormCellTypeAttachment, UIKeyboardTypeDefault, YES, NO);
-//    attachment.defaultCellHeight = 200;
+    //    attachment.defaultCellHeight = 200;
     [datas addObject:attachment];
     
     
@@ -105,5 +132,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

@@ -12,6 +12,7 @@
 #import "ZLHomeCenterOrderVC.h"
 #import "ZLShipDetailVC.h"
 #import "ZLHomeVC.h"
+#import "ZLHomeEnforcementLawVC.h"
 @interface ZLHomeShipQueryVC ()<UITableViewDelegate, UITableViewDataSource>
 //@property (nonatomic, strong) UIButton *queryButton;
 
@@ -74,10 +75,16 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
         
-    }else if ([class isEqual: [ZLHomeVC class]]){
-        ZLHomeVC *vc = [[ZLHomeVC alloc]init];
+    }else if ([class isEqual: [ZLHomeVC class]] && [self.tag isEqualToString:@"ZLHomeEnforcementLawVC"]){
+
+        ZLHomeEnforcementLawVC *vc = [[ZLHomeEnforcementLawVC alloc]init];
+        
         [self.navigationController pushViewController:vc animated:YES];
         
+        
+    }else{
+        ZLShipDetailVC *vc = [[ZLShipDetailVC alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
     ZLLog(@"%@",class);

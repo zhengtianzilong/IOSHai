@@ -74,9 +74,9 @@
 - (void)finishClicked{
     NSString *filePath = [_audioManager finishRecord];
     
-    NSString *mp3FileName = [filePath lastPathComponent];
+//    NSString *mp3FileName = [filePath lastPathComponent];
     if (self.mp3FileNameBlock) {
-        self.mp3FileNameBlock(mp3FileName);
+        self.mp3FileNameBlock(filePath);
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -169,7 +169,7 @@
 
 - (UIButton *)backBtn{
     if (!_backBtn) {
-        _backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 64)];
+        _backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, TopBarHeight - 40, 64, 64)];
         [_backBtn setImage:[UIImage imageNamed:@"media_top_back"] forState:UIControlStateNormal];
         [_backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     }

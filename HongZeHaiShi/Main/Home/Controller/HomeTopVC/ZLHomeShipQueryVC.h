@@ -14,4 +14,8 @@ typedef void(^shipQueryBlock)(NSString *name);
 
 @property (nonatomic, copy) shipQueryBlock shipBlock;
 
+// 标记点击cell时,需要跳转到哪个控制器
+@property (nonatomic, strong) NSString *tag;
+
+
 @end

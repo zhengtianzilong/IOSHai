@@ -19,6 +19,8 @@
 #import "ZLRecordAudioVC.h"
 #import "ZLUtility.h"
 #import "ZLFormItemModel.h"
+#import "ZLAudioManager.h"
+
 #define IMAGE_MAX_SIZE_5k 5120*2880
 #define AttaWidth 81
 #define RowCount 4
@@ -180,14 +182,13 @@
     
     if (indexPath.row == _formItem.images.count){
         
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取",@"录音" , nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取",@"录音",@"录像" , nil];
         
         actionSheet.tag = 555;
         [actionSheet showInView:self.superview];
         
     }else{
-    
-    
+
     [self.photos removeAllObjects];
     
     for (int i = 0; i < self.images.count; i++) {
@@ -218,7 +219,7 @@
         
         MWPhoto *photo;
         
-        if (!model.isAudio) {
+        if (!model.isAudio && !model.isVideo) {
             
             // 不是音频文件
             CGFloat imageSize = model.image.size.width *  model.image.size.height;
@@ -231,17 +232,21 @@
         }else{
             // 是音频文件,就直接播放
             ZLLog(@"%@", model);
+//            NSURL *url = [NSURL URLWithString:@"http://39.108.135.80:8080/file/message/1234/voi/20170918114342.mp3"];
+//            NSURL *music = [NSURL fileURLWithPath:model.imageUrlString];
+//
+//            [[ZLAudioManager shareManager] playAudioByFileURL:music];
+            NSURL *music = [NSURL fileURLWithPath:model.imageUrlString];
+            
+            photo = [[MWPhoto alloc]initWithVideoURL:music];
         } 
         if (photo) {
             [self.photos addObject:photo];
         }
     }
-        ZLFormItemModel *model = self.images[indexPath.item];
-        if (!model.isAudio) {
-            [self.photoBrowser setCurrentPhotoIndex:indexPath.item];
-            
-            [[self superViewController:self] presentViewController:self.photoNavigationController animated:YES completion:nil];
-        }
+        [self.photoBrowser setCurrentPhotoIndex:indexPath.item];
+        [[self superViewController:self] presentViewController:self.photoNavigationController animated:YES completion:nil];
+    
     }
     
 }
@@ -280,6 +285,11 @@
             case 2:
             {
                 [self startRecordAudio];
+            }
+                break;
+            case 3:
+            {
+                [self openVideotape];
             }
                 break;
             default:
@@ -340,6 +350,25 @@
     [self AuthorizationAudio];
 }
 
+/** 录像 */
+- (void)openVideotape {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSArray * mediaTypes =[UIImagePickerController  availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.mediaTypes = mediaTypes;
+        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+        picker.videoMaximumDuration = 60;        //录像最长时间
+    } else {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前设备不支持录像" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil, nil];
+        
+        [alertView show];
+    }
+    [[self superViewController:self] presentViewController:picker animated:YES completion:nil];
+    
+}
 
 - (void)refreshData{
     
@@ -436,13 +465,35 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
     
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    if ([mediaType isEqualToString:@"public.movie"]) {
+        
+        NSURL *videoAssetURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        
+        PHAsset *asset;
+        
+        [[ZLUtility instance] getVideoPathFromURL:videoAssetURL PHAsset:asset enableSave:YES completion:^(NSString *name, UIImage *screenshot, id pathData, NSString *videoPath)
+        {
+           
+            ZLLog(@"%@%@%@", name , screenshot, pathData);
+            ZLFormItemModel *model = [[ZLFormItemModel alloc]init];
+            model.image = screenshot;
+            model.isVideo = YES;
+            model.imageUrlString = videoPath;
+            [self.images addObject:model];
+        }];
+        
+//        videoAssetURL    NSURL *    @"file:///private/var/mobile/Containers/Data/Application/14791E83-80E1-4665-9102-992C568F3132/tmp/53890123359__769BD125-7DCE-44AC-B81D-4CBCAB11416A.MOV"
+    }else{
+ 
     UIImage *selectImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     ZLFormItemModel *model = [[ZLFormItemModel alloc]init];
     model.image = selectImage;
     model.isVideo = NO;
     [self.images addObject:model];
-    
+    }
     [self refreshData];
 }
 

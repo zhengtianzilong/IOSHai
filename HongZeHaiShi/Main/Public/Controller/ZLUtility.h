@@ -70,5 +70,18 @@
 + (BOOL)isPhotoLibraryPermit;
 + (BOOL)isCameraPermit;
 
+#pragma mark -- 视频处理
+
+/**
+ 根据视频的URL来获取视频封面截图
+ 
+ @param videoURL 视频URL
+ @param enableSave 是否将封面截图保存到本地
+ @return 返回封面截图
+ */
+- (UIImage *)imageWithVideoURL: (NSURL *)videoURL enableSave: (BOOL)enableSave;
+
+
+- (void)getVideoPathFromURL: (NSURL *)videoURL PHAsset: (PHAsset *)asset enableSave: (BOOL)enableSave completion: (void(^)(NSString *name, UIImage *screenshot, id pathData, NSString *videoPath))completion;
 
 @end

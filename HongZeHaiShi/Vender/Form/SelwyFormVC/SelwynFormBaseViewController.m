@@ -243,7 +243,8 @@
         titleLabel.adjustsFontSizeToFitWidth = YES;
         titleLabel.text = sectionItem.footerTitle;
         titleLabel.textColor = sectionItem.footerTitleColor;
-        
+       
+        [self.queryButton setTitle:sectionItem.footerTitle forState:(UIControlStateNormal)];
        [ footer addSubview:self.queryButton];
         
 //        [footer addSubview:titleLabel];

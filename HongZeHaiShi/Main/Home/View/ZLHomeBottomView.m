@@ -38,18 +38,22 @@
 
 - (void)updateConstraints{
     [super updateConstraints];
+    
+    
+    [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self);
+        make.top.equalTo(self);
+        make.bottom.equalTo(self.mas_bottom);
+        make.height.mas_equalTo(((self.itemArray.count - 1)/3 + 1) * (Main_Screen_Width / 6 + 10));
+        make.right.equalTo(self.mas_right);
+        
+        
+    }];
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.left.equalTo(self);
-        make.top.equalTo(self);
-        make.bottom.equalTo(self);
-        make.right.equalTo(self.mas_right);
-        
-    }];
+
 }
 
 #pragma mark -- collection的代理方法
@@ -63,7 +67,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 6;
+    return self.itemArray.count;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -79,6 +83,16 @@
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.itemArray.count % 3 == 1) {
+        
+        if (indexPath.row == self.itemArray.count - 1) {
+            
+            return (CGSizeMake(Main_Screen_Width, Main_Screen_Width / 6 + 10));
+            
+        }
+        
+    }
     
     return (CGSizeMake(Main_Screen_Width / 3, Main_Screen_Width / 6 + 10));
 }
@@ -109,7 +123,7 @@
 - (NSMutableArray *)itemArray{
     if (!_itemArray) {
         _itemArray = @[].mutableCopy;
-        NSArray *titleArray = @[@"中心指令", @"巡航任务", @"事故调查", @"船旗国安检", @"搜救任务", @"现场执法"];
+        NSArray *titleArray = @[@"中心指令", @"巡航任务", @"事故调查", @"船旗国安检", @"搜救任务", @"现场执法", @"快速巡航"];
         
         for (NSInteger i = 0; i < titleArray.count; i++)
         {
