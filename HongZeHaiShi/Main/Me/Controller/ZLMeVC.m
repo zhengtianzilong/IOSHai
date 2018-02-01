@@ -12,6 +12,7 @@
 #import "ZLLoginViewController.h"
 #import "ZLMeChangePasswordVC.h"
 #import "ZLMyTaskVC.h"
+#import "ZLMyMessageVC.h"
 @interface ZLMeVC ()
 @property (nonatomic, strong) ZLMeTopView *topView;
 
@@ -66,7 +67,13 @@
             [weakself.navigationController pushViewController:myTaskVC animated:YES];
             
         }
-        
+        if ([model.title isEqualToString:@"消息提醒"]){
+            
+            ZLMyMessageVC *myMessageVC = [[ZLMyMessageVC alloc]init];
+            
+            [weakself.navigationController pushViewController:myMessageVC animated:YES];
+            
+        }
     };
     
     

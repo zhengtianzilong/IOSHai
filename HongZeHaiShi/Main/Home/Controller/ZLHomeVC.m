@@ -18,6 +18,9 @@
 #import "ZLHomeShipFlagVC.h"
 #import "ZLHomeSOSTaskVC.h"
 #import "ZLHomeEnforcementLawVC.h"
+#import "ZLHomePunishmentRecordVC.h"
+#import "ZLHomePortToQueryVC.h"
+#import "ZLHomeShipReportVC.h"
 @interface ZLHomeVC ()
 @property (nonatomic, strong) ZLHomeTopView *homeTopView;
 @property (nonatomic, strong) ZLHomeCenterView *homeCenterView;
@@ -45,6 +48,21 @@
       
         if ([model.title isEqualToString:@"船舶查询"]) {
             ZLHomeShipQueryVC *vc = [[ZLHomeShipQueryVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        
+        if ([model.title isEqualToString:@"处罚记录"]) {
+            ZLHomePunishmentRecordVC *vc = [[ZLHomePunishmentRecordVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        
+        if ([model.title isEqualToString:@"报港查询"]) {
+            ZLHomePortToQueryVC *vc = [[ZLHomePortToQueryVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        
+        if ([model.title isEqualToString:@"船队报港"]) {
+            ZLHomeShipReportVC *vc = [[ZLHomeShipReportVC alloc]init];
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
         
@@ -89,22 +107,18 @@
             
         }
         if ([model.title isEqualToString:@"现场执法"]) {
-            
             ZLHomeShipQueryVC *vc = [[ZLHomeShipQueryVC alloc]init];
             vc.tag = @"ZLHomeEnforcementLawVC";
             [weakSelf.navigationController pushViewController:vc animated:YES];
             
         }
         if ([model.title isEqualToString:@"快速巡航"]) {
-            
             ZLHomeCenterOrderVC *vc = [[ZLHomeCenterOrderVC alloc]init];
             
             [weakSelf.navigationController pushViewController:vc animated:YES];
             
         }
     };
-    
-    
 }
 
 - (NSMutableAttributedString *)setTitle{
