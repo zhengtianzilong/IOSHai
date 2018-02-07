@@ -21,12 +21,15 @@
 #import "ZLHomePunishmentRecordVC.h"
 #import "ZLHomePortToQueryVC.h"
 #import "ZLHomeShipReportVC.h"
+#import "ZLWeatherModel.h"
+#import "ZLHomeLawVC.h"
 @interface ZLHomeVC ()
 @property (nonatomic, strong) ZLHomeTopView *homeTopView;
 @property (nonatomic, strong) ZLHomeCenterView *homeCenterView;
 @property (nonatomic, strong) ZLHomeDynamicView *homeDynamicView;
 @property (nonatomic, strong) ZLHomeBottomView *homeBottomView;
 @property (nonatomic, strong) UIScrollView *mainScrollView;
+@property (nonatomic, strong) YTKKeyValueStore *dbStore;
 @end
 
 @implementation ZLHomeVC
@@ -38,6 +41,16 @@
     [self.view addSubview:self.mainScrollView];
     
     [self.mainScrollView addSubview:self.homeTopView];
+    self.dbStore = [[ZLDBStoreManager shareDbStoreManager]createDB];
+    
+//    {"result":"0","pageNo":"0","detail":{"WeatherDetails":[{"temperature":"今天最高气温3℃左右","wind_direction":"偏北风4级阵风5-6级夜里转偏南风3-4级","wind":"偏北风4级阵风5-6级夜里转偏南风3-4级","time":"2018-02-06 07:19:30.0","weather":"晴到多云"}]},"totalRecordNum":"1","cmd":"getWeather","resultNote":"Success","pageNum":"1"}
+    
+    NSString *weather = [self.dbStore getStringById:DBLOGIN_ID_WEATHER fromTable:DBLOGIN_TABLE];
+    
+    ZLWeatherModel *weatherModel = [[ZLWeatherModel alloc]initWithString:weather error:nil];
+    
+    self.homeTopView.weatherModel = weatherModel;
+    
     [self.mainScrollView addSubview:self.homeCenterView];
     [self.mainScrollView addSubview:self.homeDynamicView];
     [self.mainScrollView addSubview:self.homeBottomView];
@@ -65,7 +78,10 @@
             ZLHomeShipReportVC *vc = [[ZLHomeShipReportVC alloc]init];
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
-        
+        if ([model.title isEqualToString:@"法律法规"]) {
+            ZLHomeLawVC *vc = [[ZLHomeLawVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
     };
     
     self.homeBottomView.bottomViewBlock = ^(ZLHomeBottomCollectionModel *model, NSIndexPath *indexpath) {

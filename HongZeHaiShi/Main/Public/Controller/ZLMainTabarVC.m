@@ -59,23 +59,23 @@
     if (!_tabbarAttrs) {
         NSDictionary *dict1 = @{
                                 CYLTabBarItemTitle : @"首页",
-                                CYLTabBarItemImage : @"home_normal",
-                                CYLTabBarItemSelectedImage : @"home_highlight",
+                                CYLTabBarItemImage : @"tab_home_normal",
+                                CYLTabBarItemSelectedImage : @"tab_home_high",
                                 };
         NSDictionary *dict2 = @{
                                 CYLTabBarItemTitle : @"重点船舶",
-                                CYLTabBarItemImage : @"mycity_normal",
-                                CYLTabBarItemSelectedImage : @"mycity_highlight",
+                                CYLTabBarItemImage : @"tab_import_normal",
+                                CYLTabBarItemSelectedImage : @"tab_import_high",
                                 };
         NSDictionary *dict3 = @{
                                 CYLTabBarItemTitle : @"今日值班",
-                                CYLTabBarItemImage : @"mycity_normal",
-                                CYLTabBarItemSelectedImage : @"mycity_highlight",
+                                CYLTabBarItemImage : @"tab_today_normal",
+                                CYLTabBarItemSelectedImage : @"tab_today_high",
                                 };
         NSDictionary *dict4 = @{
                                 CYLTabBarItemTitle : @"我的",
-                                CYLTabBarItemImage : @"mycity_normal",
-                                CYLTabBarItemSelectedImage : @"mycity_highlight",
+                                CYLTabBarItemImage : @"tab_me_normal",
+                                CYLTabBarItemSelectedImage : @"tab_me_high",
                                 };
        _tabbarAttrs = @[dict1, dict2, dict3, dict4 ];
     }

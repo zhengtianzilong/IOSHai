@@ -63,7 +63,7 @@
     [self.windLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.centerX.equalTo(self);
-        make.height.mas_equalTo(20);
+//        make.height.mas_equalTo(20);
         make.width.mas_equalTo(Main_Screen_Width);
         make.top.equalTo(self.titleLabel.mas_bottom).offset(5 * kScreenHeightRatio);
 //        make.bottom.equalTo(self.mas_bottom);
@@ -84,6 +84,16 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
 
+}
+
+- (void)setWeatherModel:(ZLWeatherModel *)weatherModel{
+    
+    _weatherModel = weatherModel;
+
+    ZLWeatherDetailModel *detailModel = weatherModel.detail.WeatherDetails.firstObject;
+    self.windLabel.text = [NSString stringWithFormat:@"%@", detailModel.wind];
+    
+    self.weatherLabel.text = [NSString stringWithFormat:@"%@ %@",detailModel.temperature, detailModel.weather];
 }
 
 - (UIImageView *)logoImageV{
@@ -110,8 +120,9 @@
 - (UILabel *)windLabel{
     if (!_windLabel) {
         _windLabel = [[UILabel alloc]init];
-        _windLabel.text = SLOGIN_TOP_TITLE;
+//        _windLabel.text = SLOGIN_TOP_TITLE;
         _windLabel.font = CHINESE_SYSTEMBold(14);
+        _windLabel.numberOfLines = 0;
         _windLabel.textColor = [UIColor whiteColor];
         _windLabel.textAlignment = NSTextAlignmentCenter;
     }
@@ -121,7 +132,7 @@
 - (UILabel *)weatherLabel{
     if (!_weatherLabel) {
         _weatherLabel = [[UILabel alloc]init];
-        _weatherLabel.text = @"洪泽海事移动执法平台洪泽海事移动执法平台洪";
+//        _weatherLabel.text = @"洪泽海事移动执法平台洪泽海事移动执法平台洪";
         _weatherLabel.font = CHINESE_SYSTEMBold(14);
         _weatherLabel.numberOfLines = 0;
         _weatherLabel.textColor = [UIColor whiteColor];

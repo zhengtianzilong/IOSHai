@@ -67,10 +67,10 @@
     content.placeholder = @"请填写内容";
     [datas addObject:content];
     
+    
     SelwynFormItem *attachment = SelwynItemMake(@"附件", @"", SelwynFormCellTypeAttachment, UIKeyboardTypeDefault, NO, NO);
     //    attachment.defaultCellHeight = 200;
     [datas addObject:attachment];
-    
     
     SelwynFormSectionItem *sectionItem = [[SelwynFormSectionItem alloc]init];
     sectionItem.cellItems = datas;

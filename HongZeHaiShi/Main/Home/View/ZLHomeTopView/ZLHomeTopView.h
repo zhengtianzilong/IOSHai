@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZLWeatherModel.h"
 @interface ZLHomeTopView : UIView
+
+@property (nonatomic, strong) ZLWeatherModel *weatherModel;
+
 
 @end

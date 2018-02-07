@@ -29,9 +29,11 @@ PODS:
     - LBXScan/Types (~> 2.2)
     - ZBarSDK (~> 1.3.1)
   - LBXScan/Types (2.3)
+  - LYEmptyView (1.0.1)
   - Masonry (1.1.0)
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.13)
+  - MJRefresh (3.1.15.1)
   - mp3lame-for-ios (0.1.1)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
@@ -58,8 +60,10 @@ DEPENDENCIES:
   - IQKeyboardManager (~> 3.3.7)
   - JSONModel
   - LBXScan
+  - LYEmptyView
   - Masonry
   - MBProgressHUD
+  - MJRefresh
   - mp3lame-for-ios
   - MWPhotoBrowser
   - NinaPagerView
@@ -80,9 +84,11 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
+  LYEmptyView: 6a1e41c3546d0d806b59a55498732bde70217155
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   mp3lame-for-ios: 4daeb5686885be66438154050e3fe975d4ee1f07
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   NinaPagerView: d197b579cb5a9beb5c3cb45c027a7463de52e64f
@@ -93,6 +99,6 @@ SPEC CHECKSUMS:
   YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 35616b485a339e4d5f9d38292cc9bd90a63d5941
+PODFILE CHECKSUM: 80e81444a3d5aeebdf9ae8aee5d5f4bc805ddf7c
 
 COCOAPODS: 1.3.1

@@ -22,6 +22,8 @@ pod 'SVProgressHUD'
 pod 'NinaPagerView'
 pod 'BRPickerView'
 pod 'mp3lame-for-ios'
+pod 'MJRefresh'
+pod 'LYEmptyView'
 target 'HongZeHaiShi' 
 
 end

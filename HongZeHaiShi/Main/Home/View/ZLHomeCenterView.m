@@ -111,11 +111,11 @@
     if (!_itemArray) {
         _itemArray = @[].mutableCopy;
         NSArray *titleArray = @[@"船舶查询", @"处罚记录", @"法律法规", @"报港查询", @"通讯录", @"通知公告", @"视频监控",@"船队报港"];
-        
+        NSArray *imageTitle = @[@"home_ship_query", @"home_punishment_record", @"home_law", @"home_portToQuery", @"home_contact", @"home_notification", @"home_video",@"home_ship_Report"];
         for (NSInteger i = 0; i < titleArray.count; i++)
         {
             ZLHomeCenterCollectionModel *model = [ZLHomeCenterCollectionModel new];
-            model.imageTitle = @"day_rivers_total";
+            model.imageTitle = imageTitle[i];
             model.title = titleArray[i];
             
             [self.itemArray addObject:model];
