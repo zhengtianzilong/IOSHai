@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ZLTodayTopView.h"
 #import "ZLTodayWorkModel.h"
+#import "ZLTodayTitleView.h"
 @interface ZLTodayTopContainView : UIView
 @property (nonatomic, strong) ZLTodayTopView *topView;
 
 @property (nonatomic, strong) ZLTodayWorkModel *todayWorkModel;
+
+@property (nonatomic, strong) ZLTodayTitleView *titleView;
+
+@property (nonatomic, strong) UIImageView *pinImageV;
+
+@property (nonatomic, strong) UIImageView *bottomImageV;
 
 @property (nonatomic, strong) NSArray<ZLTodayTopViewCellView *> *cellViewArray;
 

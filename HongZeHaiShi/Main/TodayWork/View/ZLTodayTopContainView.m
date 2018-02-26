@@ -27,6 +27,9 @@
     
     [self addSubview:self.topView];
     
+    [self addSubview:self.titleView];
+    [self addSubview:self.pinImageV];
+    [self addSubview:self.bottomImageV];
     self.cellViewArray = @[
                            self.topView.firstView,
                            self.topView.secondView,
@@ -56,7 +59,29 @@
         make.bottom.equalTo(self.mas_bottom).offset(-15);
     }];
     
+    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self).offset(10);
+        make.top.equalTo(self).offset(20);
+        make.width.equalTo(self.mas_width).multipliedBy(0.5);
+        make.height.mas_equalTo(40);
+    }];
   
+    [self.pinImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.right.equalTo(self.mas_right).offset(-15);
+        make.top.equalTo(self).offset(10);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self).offset(15);
+        make.top.equalTo(self.topView.mas_bottom).offset(0);
+        make.right.equalTo(self.mas_right).offset(-15);
+        make.height.mas_equalTo(10);
+    }];
     
     
 }
@@ -75,10 +100,37 @@
         
     }
     
+    self.titleView.titleLabel.text = todayWorkModel.detail.title;
     
-    
+    self.topView.timeView.timeLabel.text = todayWorkModel.detail.createtime;
     
 }
+
+- (ZLTodayTitleView *)titleView{
+    if (!_titleView) {
+        
+        _titleView = [[ZLTodayTitleView alloc]init];
+        
+    }
+    return _titleView;
+}
+
+
+- (UIImageView *)pinImageV{
+    if (!_pinImageV) {
+        _pinImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"today_pin"]];
+        
+    }
+    return _pinImageV;
+}
+
+- (UIImageView *)bottomImageV{
+    if (!_bottomImageV) {
+        _bottomImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"today_bottom_bg"]];
+    }
+    return _bottomImageV;
+}
+
 
 - (ZLTodayTopView *)topView{
     if (!_topView) {

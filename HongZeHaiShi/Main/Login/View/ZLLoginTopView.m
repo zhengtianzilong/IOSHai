@@ -61,7 +61,8 @@
     if (!_logoImageV) {
         
         _logoImageV = [[UIImageView alloc]init];
-        _logoImageV.backgroundColor = [UIColor redColor];
+//        _logoImageV.backgroundColor = [UIColor redColor];
+        _logoImageV.image = [UIImage imageNamed:@"login_logo"];
         
     }
     return _logoImageV;
@@ -73,6 +74,7 @@
         _titleLabel = [[UILabel alloc]init];
         _titleLabel.text = SLOGIN_TOP_TITLE;
         _titleLabel.font = CHINESE_SYSTEMBold(24);
+        _titleLabel.textColor = [UIColor whiteColor];
         
     }
     return _titleLabel;

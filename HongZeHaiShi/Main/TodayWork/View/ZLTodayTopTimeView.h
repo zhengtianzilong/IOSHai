@@ -10,9 +10,5 @@
 
 @interface ZLTodayTopTimeView : UIView
 
-@property (nonatomic, strong) UIImageView *timeTitleImageV;
-
-@property (nonatomic, strong) UIButton *timeTimeBtn;
-
 @property (nonatomic, strong) UILabel *timeLabel;
 @end

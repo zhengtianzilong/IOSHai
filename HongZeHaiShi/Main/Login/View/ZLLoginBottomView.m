@@ -53,7 +53,7 @@
 - (UIView *)lineView{
     if (!_lineView) {
         _lineView = [[UIView alloc]init];
-        _lineView.backgroundColor = [UIColor blueColor];
+        _lineView.backgroundColor = [UIColor whiteColor];
         
     }
     return _lineView;
@@ -64,7 +64,7 @@
         _titleLabel = [[UILabel alloc]init];
         _titleLabel.text = SLOGIN_BOTTOM_TITLE;
         _titleLabel.font = CHINESE_SYSTEM(14);
-        _titleLabel.textColor = [UIColor blueColor];
+        _titleLabel.textColor = [UIColor whiteColor];
         
     }
     return _titleLabel;

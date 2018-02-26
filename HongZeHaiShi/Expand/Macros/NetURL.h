@@ -14,6 +14,6 @@
 #define Law_Base_URL @"http://222.184.122.89:18880/hzhs/"
 
 // 附件地址
-#define Attach_Base_URL @"http://222.184.122.89:18880"
+#define Attach_Base_URL @"http://222.184.122.89:18880/hzhs"
 
 #endif /* NetURL_h */

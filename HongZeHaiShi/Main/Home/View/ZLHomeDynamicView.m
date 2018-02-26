@@ -60,7 +60,8 @@
     if (!_dynamicImageV) {
         
         _dynamicImageV = [[UIImageView alloc]init];
-        _dynamicImageV.backgroundColor = [UIColor redColor];
+//        _dynamicImageV.backgroundColor = [UIColor redColor];
+        _dynamicImageV.image = [UIImage imageNamed:@"home_dyna_pic"];
         
     }
     return _dynamicImageV;

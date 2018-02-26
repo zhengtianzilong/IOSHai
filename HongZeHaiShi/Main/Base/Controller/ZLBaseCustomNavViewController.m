@@ -27,15 +27,12 @@
 
 - (UIButton *)set_leftButton{
     
-    UIImage* backItemImage = [UIImage imageNamed:@"nav_back"];
+    UIImage* backItemImage = [UIImage imageNamed:@"nav_left"];
 //    UIImage* backItemHlImage = [[UIImage imageNamed:@"login_nav_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 23, 23)];
 //    [backButton setImage:backItemImage forState:UIControlStateNormal];
     
-    [backButton setBackgroundImage:backItemImage forState:(UIControlStateNormal)];
-    
-    
-    
+    [backButton setImage:backItemImage forState:(UIControlStateNormal)];
 //    [backButton setImage:backItemHlImage forState:UIControlStateHighlighted];
 //    [backButton sizeToFit];
     return backButton;

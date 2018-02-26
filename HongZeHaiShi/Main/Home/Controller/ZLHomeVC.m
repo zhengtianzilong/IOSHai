@@ -23,6 +23,7 @@
 #import "ZLHomeShipReportVC.h"
 #import "ZLWeatherModel.h"
 #import "ZLHomeLawVC.h"
+#import "ZLHomeAnnouncementsVC.h"
 @interface ZLHomeVC ()
 @property (nonatomic, strong) ZLHomeTopView *homeTopView;
 @property (nonatomic, strong) ZLHomeCenterView *homeCenterView;
@@ -82,6 +83,12 @@
             ZLHomeLawVC *vc = [[ZLHomeLawVC alloc]init];
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
+        
+        if ([model.title isEqualToString:@"通知公告"]) {
+            ZLHomeAnnouncementsVC *vc = [[ZLHomeAnnouncementsVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        
     };
     
     self.homeBottomView.bottomViewBlock = ^(ZLHomeBottomCollectionModel *model, NSIndexPath *indexpath) {
@@ -252,7 +259,8 @@
     if (!_mainScrollView) {
         _mainScrollView = [[UIScrollView alloc]init];
         _mainScrollView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
-        _mainScrollView.showsHorizontalScrollIndicator = NO;
+        _mainScrollView.showsVerticalScrollIndicator = NO;
+        _mainScrollView.bounces = NO;
     }
     return _mainScrollView;
 }

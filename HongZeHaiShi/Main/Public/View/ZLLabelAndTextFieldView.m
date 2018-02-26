@@ -89,7 +89,7 @@
     if (!_lineView) {
         _lineView = [[UIView alloc]init];
         
-        _lineView.backgroundColor = [UIColor redColor];
+        _lineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _lineView;
 }

@@ -31,6 +31,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (NSMutableAttributedString *)setTitle{
+    
+    NSDictionary *dic = @{NSFontAttributeName:CHINESE_SYSTEM(18),
+                          NSForegroundColorAttributeName:[UIColor whiteColor]
+                          };
+    
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:@"通知公告" attributes:dic];
+    
+    return title;
+    
+}
 
 @end

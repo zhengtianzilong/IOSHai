@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZLTimeSelectView.h"
+#import "ZLLabelAndTextFieldView.h"
 @interface ZLSelectInfoView : UIView
-
+@property (nonatomic, strong) ZLTimeSelectView *startTimeView;
+@property (nonatomic, strong) ZLTimeSelectView *endTimeView;
+@property (nonatomic, strong) ZLLabelAndTextFieldView *shipName;
 @end

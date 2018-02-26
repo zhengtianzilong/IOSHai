@@ -114,7 +114,7 @@
     if (!_itemArray) {
         _itemArray = @[].mutableCopy;
         NSArray *titleArray = @[@"我的任务", @"统计分析", @"消息提醒", @"修改密码", @"注销登录", @"版本更新"];
-        NSArray *imageArray = @[@"me_task", @"me_analyse", @"me_notifactions", @"me_changepassword", @"me_loginout", @"me_version"];
+        NSArray *imageArray = @[@"me_task", @"me_analyse", @"me_notifactions", @"me_changepassword", @"me_login_out", @"me_version"];
         for (NSInteger i = 0; i < titleArray.count; i++)
         {
             ZLMeCollectionModel *model = [ZLMeCollectionModel new];

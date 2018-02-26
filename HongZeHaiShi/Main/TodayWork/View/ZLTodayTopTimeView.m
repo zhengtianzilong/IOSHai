@@ -20,7 +20,7 @@
     
     if (self = [super init]) {
         
-        self.backgroundColor = HEXCOLOR(CNAVGATIONBAR_COLOR);
+        self.backgroundColor = [UIColor whiteColor];
         
         [self setUpViews];
         
@@ -31,8 +31,6 @@
 
 
 - (void)setUpViews{
-    [self addSubview:self.timeTitleImageV];
-    [self addSubview:self.timeTimeBtn];
     [self addSubview:self.timeLabel];
     [self addSubview:self.bottomLineView];
     [self addSubview:self.leftFirstLineView];
@@ -76,22 +74,15 @@
     
     
 }
-- (UIImageView *)timeTitleImageV{
-    
-    if (!_timeTitleImageV) {
-        _timeTitleImageV = [[UIImageView alloc]init];
-        _timeTitleImageV.backgroundColor = [UIColor greenColor];
-    }
-    return _timeTitleImageV;
-    
-}
+
 
 - (UILabel *)timeLabel{
     
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc]init];
         _timeLabel.text = @"XZXXXXXXXXXX";
-        _timeLabel.font = CHINESE_SYSTEM(13);
+        _timeLabel.font = CHINESE_SYSTEM(12);
+        _timeLabel.textAlignment = NSTextAlignmentRight;
     }
     return _timeLabel;
     
@@ -102,7 +93,7 @@
     
     if (!_bottomLineView) {
         _bottomLineView = [[UIView alloc]init];
-        _bottomLineView.backgroundColor = [UIColor blueColor];
+        _bottomLineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _bottomLineView;
     
@@ -111,7 +102,7 @@
     
     if (!_leftFirstLineView) {
         _leftFirstLineView = [[UIView alloc]init];
-        _leftFirstLineView.backgroundColor = [UIColor blueColor];
+        _leftFirstLineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _leftFirstLineView;
     
@@ -121,7 +112,7 @@
     
     if (!_leftSecondLineView) {
         _leftSecondLineView = [[UIView alloc]init];
-        _leftSecondLineView.backgroundColor = [UIColor blueColor];
+        _leftSecondLineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _leftSecondLineView;
     

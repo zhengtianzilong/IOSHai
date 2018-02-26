@@ -117,7 +117,9 @@
     return title;
     
 }
-
+- (UIButton *)set_leftButton{
+    return  nil;
+}
 - (ZLMeTopView *)topView{
     if (!_topView) {
         _topView = [[ZLMeTopView alloc]init];

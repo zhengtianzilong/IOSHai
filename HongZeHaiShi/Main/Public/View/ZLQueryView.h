@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZLTimeSelectView.h"
+#import "ZLThreeButtonView.h"
+#import "UIView+RoundedCorner.h"
+#import "ZLSelectInfoView.h"
 @interface ZLQueryView : UIView
+@property (nonatomic, strong) UIButton *queryButton;
+@property (nonatomic, strong) ZLSelectInfoView *selectInfoView;
 
+@property (nonatomic, strong) ZLThreeButtonView *threeButton;
 @end

@@ -29,10 +29,11 @@
     [super viewDidLoad];
     
     self.requestStart = 1;
+     self.sourceData = [NSMutableArray array];
     [self listData];
     
     [self.view addSubview:self.mainTableView];
-    self.sourceData = [NSMutableArray array];
+   
     
 }
 
@@ -101,6 +102,7 @@
     if (!view) {
         view = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 120)];
         self.headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 120)];
+        self.headImageView.image = [UIImage imageNamed:@"home_law_pic"];
         [view addSubview:self.headImageView];
     }
     //    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 500)];
@@ -146,7 +148,11 @@
         ZLLawUrlModel *urlModel = model.url.firstObject;
         detailVC.attachurl = urlModel.attachurl;
         
-        detailVC.attachName = model.ATTACHMENT_NAME;
+        
+        NSArray *docArray = [model.ATTACHMENT_NAME componentsSeparatedByString:@"."];
+        
+        NSString *docName = docArray.firstObject;
+        detailVC.attachName = docName;
     }
     detailVC.url = model.CONTENT;
 

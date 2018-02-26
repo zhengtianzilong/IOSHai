@@ -13,7 +13,7 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = HEXCOLOR(CNAVGATIONBAR_COLOR);
+//        self.backgroundColor = HEXCOLOR(CNAVGATIONBAR_COLOR);
         
         [self setUpViews];
         
@@ -45,7 +45,7 @@
         make.left.equalTo(self);
         make.top.equalTo(self);
         make.right.equalTo(self.mas_right);
-        make.height.mas_equalTo(60);
+        make.height.mas_equalTo(50);
     }];
     
     [self.firstView mas_makeConstraints:^(MASConstraintMaker *make) {

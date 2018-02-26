@@ -30,6 +30,19 @@
     
 }
 
+
+- (NSMutableAttributedString *)setTitle{
+    
+    NSDictionary *dic = @{NSFontAttributeName:CHINESE_SYSTEM(18),
+                          NSForegroundColorAttributeName:[UIColor whiteColor]
+                          };
+    
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:@"船队报港" attributes:dic];
+    
+    return title;
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

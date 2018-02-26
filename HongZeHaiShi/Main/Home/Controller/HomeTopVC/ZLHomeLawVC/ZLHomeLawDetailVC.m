@@ -9,7 +9,6 @@
 #import "ZLHomeLawDetailVC.h"
 #import "ZLLawAttachView.h"
 #import "ZLQuickLookVC.h"
-
 @interface ZLHomeLawDetailVC ()<UIWebViewDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate>{
     UIWebView *openFileWebView;
     
@@ -47,7 +46,7 @@
     
     [_webView loadRequest:request];
     
-    [self downloadFile];
+//    [self downloadFile];
     
 }
 
@@ -64,13 +63,11 @@
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-
-    
     [_attachView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom);
         make.width.mas_equalTo(Main_Screen_Width);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(50);
     }];
     
     [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,28 +93,31 @@
 #pragma mark - Web代理
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSURL *targetURL = [NSURL URLWithString:self.fileURLString];
+//    NSURL *targetURL = [NSURL URLWithString:self.fileURLString];
     
     NSString *docPath = [self documentsDirectoryPath];
-    NSString *pathToDownloadTo = [NSString stringWithFormat:@"%@/%@", docPath, [targetURL lastPathComponent]];
+    NSString *pathToDownloadTo = [NSString stringWithFormat:@"%@/%@.doc", docPath, self.attachName];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL hasDownLoad= [fileManager fileExistsAtPath:pathToDownloadTo];
     if (hasDownLoad) {
         self.fileURL = [NSURL fileURLWithPath:pathToDownloadTo];
-        QLPreviewController *qlVC = [[QLPreviewController alloc]init];
-        qlVC.delegate = self;
-        qlVC.dataSource = self;
-        [self.navigationController pushViewController:qlVC animated:YES];
-        //
+        
+        ZLQuickLookVC *quickVC = [[ZLQuickLookVC alloc]init];
+        
+        quickVC.fileURL = self.fileURL;
+//        QLPreviewController *qlVC = [[QLPreviewController alloc]init];
+//        qlVC.delegate = self;
+//        qlVC.dataSource = self;
+        [self.navigationController pushViewController:quickVC animated:YES];
     }
     else {
         NSURL *targetURL = [NSURL URLWithString:self.fileURLString];
-        
+
         NSData *fileData = [[NSData alloc] initWithContentsOfURL:targetURL];
         // Get the path to the App's Documents directory
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
-        [fileData writeToFile:[NSString stringWithFormat:@"%@/%@", documentsDirectory, [targetURL lastPathComponent]] atomically:YES];
+        [fileData writeToFile:[NSString stringWithFormat:@"%@/%@.doc", documentsDirectory, self.attachName] atomically:YES];
         NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
         [openFileWebView loadRequest:request];
     }
@@ -125,55 +125,6 @@
     NSLog(@"webViewDidFinishLoad");
 }
 
-- (void)downloadFile{
-    
-    NSString *urlStr = @"http://222.184.122.89:18880/hzhs/hzhs/act/upload/UploadFileAct/upload4Url.act?attachmentId=1712_fa0d12db1ff15d8671d4cbf51c81d0f8,&attachmentName=%E6%B4%AA%E6%B3%BD%E6%B9%96%E9%80%9A%E8%88%AA%E7%A7%A9%E5%BA%8F%E7%AE%A1%E7%90%86%E7%9A%84%E8%88%AA%E8%A1%8C%E9%80%9A%E5%91%8A.doc*&module=law";
-
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURL *url = [NSURL URLWithString:urlStr];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (!error) {
-            
-            NSError *saveError;
-            
-            NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-            
-            NSString *savePath = [cachePath stringByAppendingPathComponent:@"ceshi.doc"];
-            
-            NSURL *saveUrl = [NSURL fileURLWithPath:savePath];
-            
-            //把下载的内容从cache复制到document下
-            
-            [[NSFileManager defaultManager] copyItemAtURL:location toURL:saveUrl error:&saveError];
-            
-            if (!saveError) {
-                
-                NSLog(@"save success");
-                
-            }else{
-                
-                NSLog(@"save error:%@",saveError.localizedDescription);
-                
-            }
-            
-        }else{
-            
-            NSLog(@"download error:%@",error.localizedDescription);
-            
-        }
-        
-    }];
-    
-    [downloadTask resume];
-    
-}
 
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

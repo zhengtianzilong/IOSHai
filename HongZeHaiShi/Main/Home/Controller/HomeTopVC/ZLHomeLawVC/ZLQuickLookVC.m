@@ -22,7 +22,7 @@
     _previewController.dataSource = self;
     _previewController.delegate = self;
     
-    _previewController.view.frame = CGRectMake(0, 64, self.view.frame.size.width , self.view.frame.size.height);
+    _previewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width , self.view.frame.size.height);
     _previewController.currentPreviewItemIndex = 0;
     [self addChildViewController:_previewController];
     [self.view addSubview:_previewController.view];
@@ -38,7 +38,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (NSMutableAttributedString *)setTitle{
+    
+    NSDictionary *dic = @{NSFontAttributeName:CHINESE_SYSTEM(18),
+                          NSForegroundColorAttributeName:[UIColor whiteColor]
+                          };
+    
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:@"附件预览" attributes:dic];
+    
+    return title;
+    
+}
 
 
 @end

@@ -7,25 +7,9 @@
 //
 
 #import "ZLQueryView.h"
-#import "ZLTimeSelectView.h"
-#import "ZLThreeButtonView.h"
-#import "UIView+RoundedCorner.h"
-#import "ZLSelectInfoView.h"
+
 @interface ZLQueryView ()
-//@property (nonatomic, strong) UILabel *shipLabel;
-//
-//@property (nonatomic, strong) UITextField *shipTextField;
-//
-//@property (nonatomic, strong) UIView *shipLineView;
-//
-//@property (nonatomic, strong) ZLTimeSelectView *startTimeView;
-//@property (nonatomic, strong) ZLTimeSelectView *endTimeView;
 
-@property (nonatomic, strong) ZLSelectInfoView *selectInfoView;
-
-@property (nonatomic, strong) ZLThreeButtonView *threeButton;
-//@property (nonatomic, strong) UIView *lineView;
-@property (nonatomic, strong) UIButton *queryButton;
 @end
 
 @implementation ZLQueryView
@@ -34,14 +18,6 @@
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
-        
-//        [self addSubview:self.shipLabel];
-//        [self addSubview:self.shipTextField];
-//        [self addSubview:self.shipLineView];
-//
-//        [self addSubview:self.startTimeView];
-//        [self addSubview:self.lineView];
-//        [self addSubview:self.endTimeView];
         
         [self addSubview:self.selectInfoView];
         [self addSubview:self.threeButton];
@@ -54,53 +30,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-//
-//    [self.shipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(10);
-//        make.top.equalTo(self).offset(0);
-//        make.height.mas_equalTo(40);
-//
-//    }];
-//
-//    [self.shipTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.shipLabel.mas_right).offset(0);
-//        make.top.equalTo(self.mas_top).offset(0);
-//        make.height.mas_equalTo(40);
-//        make.right.equalTo(self.mas_right);
-//
-//    }];
-//
-//    [self.shipLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(0);
-//        make.top.equalTo(self.shipTextField.mas_bottom).offset(0);
-//        make.height.mas_equalTo(1);
-//        make.right.equalTo(self.mas_right);
-//    }];
-//
-//
-//
-//    [self.startTimeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self);
-//        make.right.equalTo(self.mas_right).offset(0);
-//        make.top.equalTo(self.shipLineView.mas_bottom).offset(0);
-//        make.height.mas_equalTo(40);
-//    }];
-//
-//
-//
-//    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(0);
-//        make.top.equalTo(self.startTimeView.mas_bottom).offset(0);
-//        make.height.mas_equalTo(1);
-//        make.right.equalTo(self.mas_right);
-//    }];
-//
-//    [self.endTimeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self);
-//        make.right.equalTo(self.mas_right).offset(0);
-//        make.top.equalTo(self.lineView.mas_bottom).offset(0);
-//        make.height.mas_equalTo(40);
-//    }];
+
     
     [self.selectInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
@@ -135,57 +65,6 @@
     
 }
 
-//- (UILabel *)shipLabel{
-//    if (!_shipLabel) {
-//
-//        _shipLabel = [[UILabel alloc]init];
-//        [_shipLabel setText:@"船舶名称:"];
-//        _shipLabel.backgroundColor = [UIColor whiteColor];
-//        _shipLabel.font = CHINESE_SYSTEM(15);
-//
-//    }
-//    return _shipLabel;
-//
-//
-//}
-//
-//- (UITextField *)shipTextField{
-//    if (!_shipTextField) {
-//        _shipTextField = [[UITextField alloc]init];
-//        _shipTextField.placeholder = @"请输入船舶名称";
-//        _shipTextField.backgroundColor = [UIColor whiteColor];
-//
-//    }
-//    return _shipTextField;
-//}
-//- (UIView *)shipLineView{
-//    if (!_shipLineView) {
-//        _shipLineView = [[UIView alloc]init];
-//        _shipLineView.backgroundColor = [UIColor redColor];
-//    }
-//    return _shipLineView;
-//}
-//
-//
-//- (ZLTimeSelectView *)startTimeView{
-//    if (!_startTimeView) {
-//
-//        _startTimeView = [[ZLTimeSelectView alloc]init];
-//        _startTimeView.timeLabel.text = @"开始时间:";
-//    }
-//    return _startTimeView;
-//}
-//
-//- (ZLTimeSelectView *)endTimeView{
-//    if (!_endTimeView) {
-//
-//        _endTimeView = [[ZLTimeSelectView alloc]init];
-//
-//        _endTimeView.timeLabel.text = @"结束时间:";
-//
-//    }
-//    return _endTimeView;
-//}
 
 - (ZLSelectInfoView *)selectInfoView{
     if (!_selectInfoView) {
@@ -200,11 +79,69 @@
     
     if (!_threeButton) {
         _threeButton = [[ZLThreeButtonView alloc]init];
-        
+        [_threeButton.oneMonthBtn addTarget:self action:@selector(oneMonthBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
+        [_threeButton.oneQuarterBtn addTarget:self action:@selector(oneQuarterBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
+        [_threeButton.halfYearBtn addTarget:self action:@selector(halfYearBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
     }
     return _threeButton;
     
 }
+
+
+/**
+ 本月
+ */
+- (void)oneMonthBtnClick{
+    [self solveTimeWith:1];
+}
+
+/**
+ 本季度
+ */
+- (void)oneQuarterBtnClick{
+    [self solveTimeWith:3];
+}
+
+/**
+ 半年
+ */
+- (void)halfYearBtnClick{
+    [self solveTimeWith:6];
+}
+
+
+/**
+ 计算当前时间之前的时间
+
+ @param beforeTime 往前推多久
+ */
+- (void)solveTimeWith:(NSInteger)beforeTime{
+    //得到当前的时间
+    NSDate * mydate = [NSDate date];
+    
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    self.selectInfoView.endTimeView.selectTimeLabel.text = currentDateStr;
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *comps = nil;
+    
+    comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitMonth fromDate:mydate];
+    
+    NSDateComponents *adcomps = [[NSDateComponents alloc] init];
+    
+    [adcomps setYear:0];
+    
+    [adcomps setMonth:-beforeTime];
+    
+    [adcomps setDay:0];
+    NSDate *newdate = [calendar dateByAddingComponents:adcomps toDate:mydate options:0];
+    NSString *beforDate = [dateFormatter stringFromDate:newdate];
+    self.selectInfoView.startTimeView.selectTimeLabel.text = beforDate;
+}
+
 
 - (UIButton *)queryButton{
     if (!_queryButton) {
@@ -218,13 +155,5 @@
     
 }
 
-//- (UIView *)lineView{
-//    if (!_lineView) {
-//        _lineView = [[UIView alloc]init];
-//
-//        _lineView.backgroundColor = [UIColor redColor];
-//    }
-//    return _lineView;
-//}
 
 @end

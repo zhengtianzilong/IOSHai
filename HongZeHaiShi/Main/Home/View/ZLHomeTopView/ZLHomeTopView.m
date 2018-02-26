@@ -38,8 +38,6 @@
     [self addSubview:self.titleLabel];
     [self addSubview:self.windLabel];
     [self addSubview:self.weatherLabel];
-    
-    
 }
 
 - (void)updateConstraints{
@@ -91,7 +89,7 @@
     _weatherModel = weatherModel;
 
     ZLWeatherDetailModel *detailModel = weatherModel.detail.WeatherDetails.firstObject;
-    self.windLabel.text = [NSString stringWithFormat:@"%@", detailModel.wind];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %@", detailModel.wind, detailModel.wind_direction];
     
     self.weatherLabel.text = [NSString stringWithFormat:@"%@ %@",detailModel.temperature, detailModel.weather];
 }
@@ -100,7 +98,8 @@
     if (!_logoImageV) {
         
         _logoImageV = [[UIImageView alloc]init];
-        _logoImageV.backgroundColor = [UIColor redColor];
+//        _logoImageV.backgroundColor = [UIColor redColor];
+        _logoImageV.image = [UIImage imageNamed:@"home_logo"];
         
     }
     return _logoImageV;

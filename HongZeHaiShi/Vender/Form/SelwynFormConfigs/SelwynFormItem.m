@@ -16,9 +16,8 @@
     self = [super init];
     
     if (self) {
-    
         _formDetail = @"";
-        _defaultCellHeight = 44;
+        _defaultCellHeight = 55;
         _maxImageCount = 4;
     }
     

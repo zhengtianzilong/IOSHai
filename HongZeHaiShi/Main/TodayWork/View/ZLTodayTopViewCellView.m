@@ -22,7 +22,7 @@
     
     if (self = [super init]) {
         
-        self.backgroundColor = HEXCOLOR(CNAVGATIONBAR_COLOR);
+        self.backgroundColor = [UIColor whiteColor];
         
         [self setUpViews];
         
@@ -91,7 +91,7 @@
     
     if (!_bottomLineView) {
         _bottomLineView = [[UIView alloc]init];
-        _bottomLineView.backgroundColor = [UIColor blueColor];
+        _bottomLineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _bottomLineView;
     
@@ -100,7 +100,7 @@
     
     if (!_leftFirstLineView) {
         _leftFirstLineView = [[UIView alloc]init];
-        _leftFirstLineView.backgroundColor = [UIColor blueColor];
+        _leftFirstLineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _leftFirstLineView;
     
@@ -110,7 +110,7 @@
     
     if (!_leftSecondLineView) {
         _leftSecondLineView = [[UIView alloc]init];
-        _leftSecondLineView.backgroundColor = [UIColor blueColor];
+        _leftSecondLineView.backgroundColor = HEXCOLOR(CVIEW_GRAY_COLOR);
     }
     return _leftSecondLineView;
     
@@ -119,9 +119,9 @@
 - (UILabel *)dutyPersonnel{
     if (!_dutyPersonnel) {
         _dutyPersonnel = [[UILabel alloc]init];
-        _dutyPersonnel.text = @"管理员";
+//        _dutyPersonnel.text = @"管理员";
         _dutyPersonnel.font = CHINESE_SYSTEM(13);
-        _dutyPersonnel.textColor = [UIColor whiteColor];
+        _dutyPersonnel.textColor = [UIColor blackColor];
         
     }
     return _dutyPersonnel;
@@ -131,9 +131,9 @@
 - (UILabel *)departName{
     if (!_departName) {
         _departName = [[UILabel alloc]init];
-        _departName.text = @"部门: 办公室";
+//        _departName.text = @"部门: 办公室";
         _departName.font = CHINESE_SYSTEM(13);
-        _departName.textColor = [UIColor whiteColor];
+        _departName.textColor = [UIColor blackColor];
     }
     return _departName;
 }

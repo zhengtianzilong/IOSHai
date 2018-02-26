@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZLImportantShipListDetailModel.h"
 @interface ZLImportantTodayTableViewCell : UITableViewCell
 
 // 标题,江苏托
@@ -26,5 +26,7 @@
 @property (nonatomic, strong) UILabel *deadWeight;
 // 系统管理员标记
 @property (nonatomic, strong) UILabel *people;
+
+@property (nonatomic, strong) ZLImportantShipListDetailModel *detailModel;
 
 @end

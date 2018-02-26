@@ -38,6 +38,17 @@
    
 }
 
+- (void)setDetailModel:(ZLImportantShipListDetailModel *)detailModel{
+    _detailModel = detailModel;
+    
+    self.titleLabel.text = detailModel.VESSELNAMECN;
+    self.ship.text = detailModel.NATIVEPORT;
+    self.weight.text = detailModel.total;
+    self.deadWeight.text = detailModel.capacity;
+    self.people.text = detailModel.LASTDESC;
+    
+    
+}
 
 - (void)layoutSubviews{
     [super layoutSubviews];
@@ -54,9 +65,10 @@
     [self.tipImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(self.titleLabel.mas_right).offset(0);
-        make.top.equalTo(self.titleLabel);
-        make.height.mas_equalTo(20);
-        make.width.mas_equalTo(20);
+//        make.top.equalTo(self.titleLabel);
+        make.centerY.equalTo(self.titleLabel);
+        make.height.mas_equalTo(13);
+        make.width.mas_equalTo(13);
         
     }];
     
@@ -92,14 +104,14 @@
         make.left.equalTo(self.weightLabel.mas_right);
         make.top.equalTo(self.weightLabel);
         make.height.mas_equalTo(20);
-        //        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(50);
         
     }];
     
     
     [self.deadWeightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.left.equalTo(self.shipLable.mas_right);
+        make.left.equalTo(self.weight.mas_right);
         make.top.equalTo(self.weightLabel);
         make.height.mas_equalTo(20);
         //        make.width.mas_equalTo(50);
@@ -137,8 +149,8 @@
 
 - (UIImageView *)tipImageV{
     if (!_tipImageV) {
-        _tipImageV = [[UIImageView alloc]init];
-        _tipImageV.backgroundColor = [UIColor redColor];
+        _tipImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"importantShip_event"]];
+//        _tipImageV.backgroundColor = [UIColor redColor];
     }
     return _tipImageV;
 }

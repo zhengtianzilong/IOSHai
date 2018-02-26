@@ -69,7 +69,8 @@
 - (UIImageView *)userImageView{
     if (!_userImageView) {
         _userImageView = [[UIImageView alloc]init];
-        _userImageView.backgroundColor = [UIColor redColor];
+//        _userImageView.backgroundColor = [UIColor redColor];
+        _userImageView.image = [UIImage imageNamed:@"me_icon"];
     }
     return _userImageView;
 }

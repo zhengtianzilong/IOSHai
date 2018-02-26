@@ -32,11 +32,11 @@
     [super viewDidLoad];
     
     self.requestStart = 1;
-    
+    self.sourceData = [NSMutableArray array];
     [self initData];
     [self listData];
     [self.view addSubview:self.mainTableView];
-    self.sourceData = [NSMutableArray array];
+    
     
 }
 
@@ -227,6 +227,10 @@
     
     return title;
     
+}
+
+- (UIButton *)set_leftButton{
+    return  nil;
 }
 
 - (void)didReceiveMemoryWarning {

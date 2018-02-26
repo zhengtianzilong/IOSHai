@@ -10,7 +10,7 @@
 
 @interface ZLLoginBaseView()
 
-
+@property (nonatomic, strong) UIImageView *bgImageV;
 @end
 
 @implementation ZLLoginBaseView
@@ -27,15 +27,26 @@
 }
 
 - (void)setUpViews{
-    [self addSubview:self.loginTopView];
+    [self addSubview:self.bgImageV];
+    [self.bgImageV addSubview:self.loginTopView];
     
-    [self addSubview:self.loginInputView];
-    [self addSubview:self.loginBottomView];
+    [self.bgImageV addSubview:self.loginInputView];
+    [self.bgImageV addSubview:self.loginBottomView];
 }
 
 
 - (void)layoutSubviews{
     [super layoutSubviews];
+    [self.bgImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self);
+        make.width.mas_equalTo(Main_Screen_Width);
+        make.height.mas_equalTo(Main_Screen_Height);
+        make.top.equalTo(self);
+        
+    }];
+    
+    
     [self.loginTopView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.centerX.equalTo(self);
@@ -62,6 +73,15 @@
     }];
     
     
+}
+
+- (UIImageView *)bgImageV{
+    if (!_bgImageV) {
+        
+        _bgImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_bg"]];
+        _bgImageV.userInteractionEnabled = YES;
+    }
+    return _bgImageV;
 }
 
 - (ZLLoginTopView *)loginTopView{
